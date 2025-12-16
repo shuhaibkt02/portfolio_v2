@@ -50,7 +50,8 @@ export const NavBar = () => {
                                 {isActive && (
                                     <motion.div
                                         layoutId="nav-pill"
-                                        className="absolute -bottom-3 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-flutter-blue"
+                                        className="absolute -bottom-3 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full"
+                                        style={{ backgroundColor: "#0468D7" }}
                                         transition={{ type: "spring", stiffness: 300, damping: 20 }}
                                     />
                                 )}
