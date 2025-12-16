@@ -16,13 +16,13 @@ export const StoryTimeline = () => {
             <div className="mx-auto max-w-7xl px-6 sm:px-12">
                 <h2 className="mb-12 text-3xl font-bold font-heading">My Journey</h2>
 
-                {/* Horizontal Scroll Container */}
-                <div className="relative overflow-hidden">
+                {/* Vertical/Horizontal Container */}
+                <div className="relative">
 
                     {/* Progress Line */}
-                    <div className="absolute top-8 left-0 h-0.5 w-full bg-zinc-800" />
+                    <div className="absolute left-4 top-0 h-full w-0.5 bg-zinc-800 md:left-0 md:top-8 md:h-0.5 md:w-full" />
 
-                    <div className="flex w-full gap-8 overflow-x-auto pb-12 pt-4 scrollbar-hide">
+                    <div className="flex flex-col gap-8 pb-12 pt-4 md:flex-row md:overflow-x-auto md:scrollbar-hide">
                         {milestones.map((milestone, index) => (
                             <motion.div
                                 key={index}
@@ -30,12 +30,12 @@ export const StoryTimeline = () => {
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.2 }}
-                                className="relative min-w-[300px] shrink-0 pt-4"
+                                className="relative md:min-w-[300px] shrink-0 pt-4 md:pt-4 pl-12 md:pl-0"
                             >
                                 {/* Dot */}
-                                <div className="absolute top-0 left-0 h-4 w-4 rounded-full border-4 border-zinc-950 bg-flutter-blue" />
+                                <div className="absolute left-2 top-8 h-4 w-4 -translate-y-1/2 rounded-full border-4 border-zinc-950 bg-flutter-blue md:left-0 md:top-0 md:translate-y-0" />
 
-                                <div className="ml-2 mt-4 rounded-xl border border-zinc-800 bg-zinc-900/50 p-6 backdrop-blur-sm transition-all hover:bg-zinc-900">
+                                <div className="rounded-xl border border-zinc-800 bg-zinc-900/50 p-6 backdrop-blur-sm transition-all hover:bg-zinc-900 md:ml-2 md:mt-4">
                                     <span className="text-sm font-bold text-flutter-blue">{milestone.year}</span>
                                     <h3 className="mt-2 text-xl font-bold">{milestone.title}</h3>
                                     <p className="mt-2 text-zinc-400">{milestone.desc}</p>

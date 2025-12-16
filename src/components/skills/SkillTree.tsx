@@ -5,19 +5,19 @@ import { useState } from "react";
 
 // Simple node data structure for the tree
 const skills = [
-    { id: "core", x: 50, y: 50, label: "Core", level: "Expert" },
-    { id: "mobile", x: 30, y: 30, label: "Mobile", parent: "core" },
-    { id: "web", x: 70, y: 30, label: "Web", parent: "core" },
+    { id: "core", x: 50, y: 55, label: "Core", level: "Expert" },
+    { id: "mobile", x: 30, y: 35, label: "Mobile", parent: "core" },
+    { id: "web", x: 70, y: 35, label: "Web", parent: "core" },
     { id: "backend", x: 50, y: 80, label: "Backend", parent: "core" },
 
-    { id: "flutter", x: 20, y: 15, label: "Flutter", parent: "mobile" },
+    { id: "flutter", x: 15, y: 15, label: "Flutter", parent: "mobile" },
     { id: "kotlin", x: 40, y: 15, label: "Kotlin", parent: "mobile" },
 
     { id: "react", x: 60, y: 15, label: "React", parent: "web" },
-    { id: "nextjs", x: 80, y: 15, label: "Next.js", parent: "web" },
+    { id: "nextjs", x: 85, y: 15, label: "Next.js", parent: "web" },
 
-    { id: "node", x: 40, y: 90, label: "Node.js", parent: "backend" },
-    { id: "firebase", x: 60, y: 90, label: "Firebase", parent: "backend" },
+    { id: "node", x: 35, y: 95, label: "Node.js", parent: "backend" },
+    { id: "firebase", x: 65, y: 95, label: "Firebase", parent: "backend" },
 ];
 
 export const SkillTree = () => {
