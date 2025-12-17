@@ -42,9 +42,9 @@ Use this to track what needs to be updated.
 - Flutter, Riverpod, Kotlin Plugin, Hive, PDF Generation
 
 **Research**
-- **Requirement**: Distributors needed a way to print invoices on the spot.
-- **tech-choice**: Chosen Flutter for UI consistency and Native Kotlin for robust background services.
-- **Architecture**: Implemented EventChannel for seamless communication between Dart and Native layers.
+- **Zero Latency**: Engineered a 'User-First' write-through pattern: Actions save locally instantly, while background services handle GPS resolution and data syncing.
+- **Native Bridge**: Built a custom EventChannel to offload battery-intensive GPS and retry-logic to the Android native layer (Kotlin) for stability.
+- **Robust Sync**: Implemented a 3-stage retry queue with exponential backoff. If reliable sync fails after 3 attempts, the system prompts for manual intervention.
 
 ---
 
@@ -54,7 +54,7 @@ Use this to track what needs to be updated.
 **Core Info**
 - **Title**: WAVES 2 - Adv. Sales Platform
 - **Category**: Enterprise Mobile Solution
-- **Description**: An advanced evolution combining primary distributor sales and secondary direct shop sales into a unified, route-intelligent platform.
+- **Description**: An advanced evolution combining primary and secondary sales into a unified platform, built on a robust Offline-First Workflow Architecture.
 - **Metrics**: "Route Intelligence", "Sync Reliability", "Expense Automation"
 
 **The Challenge**
@@ -73,9 +73,9 @@ Use this to track what needs to be updated.
 - Flutter, Riverpod, Kotlin Plugin, Room DB, WorkManager
 
 **Research**
-- **Sync Logic**: Designed a 'User First' sync model where UI never blocks for network.
-- **Validation**: Implemented mandatory live photo proof for shop visits.
-- **Optimization**: Used Intelligent Caching Manager to speed up reference data loading.
+- **Sync Architecture**: Adopted a 'Fire-and-Forget' UI pattern. Time & Location are captured at trigger, while heavy resolution (Google Maps API) happens in the background.
+- **Validation**: Combined instant local validation with deferred server-side checks. Photo proof is compressed locally before being queued for upload.
+- **Resilience**: Fail-safe Logic: The app stores reference data for manual sync if the 3-retry background worker encounters persistent network failure.
 
 ---
 
@@ -85,7 +85,7 @@ Use this to track what needs to be updated.
 **Core Info**
 - **Title**: Ozone - Activity Tracker
 - **Category**: Workforce Management
-- **Description**: Focused employee activity and distance-tracking application used for salary calculation and performance evaluation.
+- **Description**: Focused employee activity and distance-tracking application used for salary calculation, featuring an Offline-First Workflow Architecture.
 - **Metrics**: "Accurate Mileage", "Performance Audit", "Dual Dashboard"
 
 **The Challenge**
@@ -104,8 +104,9 @@ Use this to track what needs to be updated.
 - Flutter, Riverpod, Kotlin Plugin, Room DB
 
 **Research**
-- **System**: Built a retry persistence layer using SharedPreferences to handle app kills.
-- **Audit**: Developed correlation logic to verify distance against business performance.
+- **Persistence**: Built a custom persistence layer using SharedPreferences to survive aggressive Android OS background app killing.
+- **Retry Logic**: Background workers attempt to resolve GPS coordinates 3 times before flagging data as 'incomplete' for manual user review.
+- **Audit Trail**: Every background action logs its execution state (Success/Retry/Fail), creating a transparent audit trail for salary validation.
 
 ---
 

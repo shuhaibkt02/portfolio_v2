@@ -85,16 +85,16 @@ export const caseStudies: CaseStudy[] = [
         gallery: [1, 2, 3, 4].map(i => `/projects/waves/screen-${i}.jpg`),
 
         research: [
-            { title: "Requirement", iconName: "search", description: "Distributors needed a way to print invoices on the spot." },
-            { title: "tech-choice", iconName: "code", description: "Chosen Flutter for UI consistency and Native Kotlin for robust background services." },
-            { title: "Architecture", iconName: "server", description: "Implemented EventChannel for seamless communication between Dart and Native layers." },
+            { title: "Zero Latency", iconName: "database", description: "Engineered a 'User-First' write-through pattern: Actions save locally instantly, while background services handle GPS resolution and data syncing." },
+            { title: "Native Bridge", iconName: "code", description: "Built a custom EventChannel to offload battery-intensive GPS and retry-logic to the Android native layer (Kotlin) for stability." },
+            { title: "Robust Sync", iconName: "server", description: "Implemented a 3-stage retry queue with exponential backoff. If reliable sync fails after 3 attempts, the system prompts for manual intervention." },
         ]
     },
     {
         id: "waves-2",
         title: "WAVES 2 - Adv. Sales Platform",
         category: "Enterprise Mobile Solution",
-        description: "An advanced evolution combining primary distributor sales and secondary direct shop sales into a unified, route-intelligent platform.",
+        description: "An advanced evolution combining primary and secondary sales into a unified platform, built on a robust Offline-First Workflow Architecture.",
         thumbnail: "/projects/waves2/thumb.jpg",
         techStack: ["Flutter", "BLoC", "Clean Arch", "Kotlin Plugin"],
         metrics: ["Route Intelligence", "Sync Reliability", "Expense Automation"],
@@ -139,16 +139,16 @@ export const caseStudies: CaseStudy[] = [
         gallery: [1, 2, 3, 4].map(i => `/projects/waves2/screen-${i}.jpg`),
 
         research: [
-            { title: "Sync Logic", iconName: "database", description: "Designed a 'User First' sync model where UI never blocks for network." },
-            { title: "Validation", iconName: "shield", description: "Implemented mandatory live photo proof for shop visits." },
-            { title: "Optimization", iconName: "code", description: "Used Intelligent Caching Manager to speed up reference data loading." },
+            { title: "Sync Architecture", iconName: "database", description: "Adopted a 'Fire-and-Forget' UI pattern. Time & Location are captured at trigger, while heavy resolution (Google Maps API) happens in the background." },
+            { title: "Validation", iconName: "shield", description: "Combined instant local validation with deferred server-side checks. Photo proof is compressed locally before being queued for upload." },
+            { title: "Resilience", iconName: "server", description: "Fail-safe Logic: The app stores reference data for manual sync if the 3-retry background worker encounters persistent network failure." },
         ]
     },
     {
         id: "ozone",
         title: "Ozone - Activity Tracker",
         category: "Workforce Management",
-        description: "Focused employee activity and distance-tracking application used for salary calculation and performance evaluation.",
+        description: "Focused employee activity and distance-tracking application used for salary calculation, featuring an Offline-First Workflow Architecture.",
         thumbnail: "/projects/ozone/thumb.jpg",
         techStack: ["Flutter", "Riverpod", "Kotlin Plugin", "Room DB"],
         metrics: ["Accurate Mileage", "Performance Audit", "Dual Dashboard"],
@@ -193,8 +193,9 @@ export const caseStudies: CaseStudy[] = [
         gallery: [1, 2, 3, 4].map(i => `/projects/ozone/screen-${i}.jpg`),
 
         research: [
-            { title: "System", iconName: "server", description: "Built a retry persistence layer using SharedPreferences to handle app kills." },
-            { title: "Audit", iconName: "shield", description: "Developed correlation logic to verify distance against business performance." },
+            { title: "Persistence", iconName: "database", description: "Built a custom persistence layer using SharedPreferences to survive aggressive Android OS background app killing." },
+            { title: "Retry Logic", iconName: "server", description: "Background workers attempt to resolve GPS coordinates 3 times before flagging data as 'incomplete' for manual user review." },
+            { title: "Audit Trail", iconName: "shield", description: "Every background action logs its execution state (Success/Retry/Fail), creating a transparent audit trail for salary validation." },
         ]
     },
     {
