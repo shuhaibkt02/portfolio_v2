@@ -7,8 +7,8 @@ import { useEffect, useState } from "react";
 
 const TYPING_STRINGS = [
     "Mobile App Developer",
-    "Flutter Specialist",
-    "UI/UX Enthusiast",
+    "Flutter & Kotlin Specialist",
+    "Enterprise Field Sales Systems Engineer",
 ];
 
 export const HeroSection = () => {

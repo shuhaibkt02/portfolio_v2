@@ -5,19 +5,32 @@ import { useState } from "react";
 
 // Simple node data structure for the tree
 const skills = [
-    { id: "core", x: 50, y: 55, label: "Core", level: "Expert" },
-    { id: "mobile", x: 30, y: 38, label: "Mobile", parent: "core" },
-    { id: "web", x: 70, y: 38, label: "Web", parent: "core" },
-    { id: "backend", x: 50, y: 72, label: "Backend", parent: "core" },
+    { id: "core", x: 50, y: 50, label: "Core", level: "Expert" },
 
-    { id: "flutter", x: 20, y: 20, label: "Flutter", parent: "mobile" },
-    { id: "kotlin", x: 40, y: 20, label: "Kotlin", parent: "mobile" },
+    // Categories
+    { id: "mobile", x: 25, y: 30, label: "Mobile Dev", parent: "core" },
+    { id: "web", x: 75, y: 30, label: "Web Dev", parent: "core" },
+    { id: "backend", x: 25, y: 70, label: "Backend", parent: "core" },
+    { id: "arch", x: 75, y: 70, label: "Architecture", parent: "core" },
 
+    // Mobile
+    { id: "flutter", x: 10, y: 20, label: "Flutter", parent: "mobile" },
+    { id: "kotlin", x: 25, y: 15, label: "Kotlin", parent: "mobile" },
+    { id: "jetpack", x: 40, y: 20, label: "Jetpack", parent: "mobile" },
+
+    // Web
     { id: "react", x: 60, y: 20, label: "React", parent: "web" },
-    { id: "nextjs", x: 80, y: 20, label: "Next.js", parent: "web" },
+    { id: "nextjs", x: 90, y: 20, label: "Next.js", parent: "web" },
 
-    { id: "node", x: 40, y: 87, label: "Node.js", parent: "backend" },
-    { id: "firebase", x: 60, y: 87, label: "Firebase", parent: "backend" },
+    // Backend
+    { id: "node", x: 10, y: 80, label: "Node.js", parent: "backend" },
+    { id: "firebase", x: 25, y: 85, label: "Firebase", parent: "backend" },
+    { id: "postgres", x: 40, y: 80, label: "Postgres", parent: "backend" },
+
+    // Architecture
+    { id: "bloc", x: 60, y: 80, label: "BLoC", parent: "arch" },
+    { id: "riverpod", x: 75, y: 85, label: "Riverpod", parent: "arch" },
+    { id: "clean", x: 90, y: 80, label: "Clean Arch", parent: "arch" },
 ];
 
 export const SkillTree = () => {

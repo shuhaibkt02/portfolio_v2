@@ -3,11 +3,11 @@
 import { motion } from "framer-motion";
 
 const milestones = [
-    { year: "2019", title: "BCA Graduation", desc: "Graduated with distinction. Discovered passion for mobile dev." },
-    { year: "2020", title: "First Freelance App", desc: "Built a grocery delivery app during lockdown. 500+ users." },
-    { year: "2021", title: "Joined TechCorp", desc: "Junior Flutter Developer. Worked on fintech solutions." },
-    { year: "2023", title: "Lead Developer", desc: "Promoted to Lead. Managed a team of 4 developers." },
-    { year: "Present", title: "Full Stack Journey", desc: "Exploring Next.js and advanced architecture patterns." },
+    { year: "Pre-2019", title: "Cybersecurity Foundations", desc: "Built foundational knowledge in networking, system security, and defensive cybersecurity concepts before formal degree studies." },
+    { year: "2019 – 2022", title: "BCA (Distance)", desc: "Completed BCA through distance education, focusing on academic foundations while independently exploring technology." },
+    { year: "2023 – 2025", title: "Career Break & Skill Building", desc: "Took a planned career break to deepen technical skills, explore blockchain, and understand market dynamics." },
+    { year: "2025 – Present", title: "Mobile App Developer", desc: "Working at SpiralCode Innovates LLP on enterprise-grade Flutter applications and offline-first systems." },
+    { year: "Present", title: "Continuous Growth", desc: "Actively expanding full-stack capabilities with Next.js, TypeScript, and scalable system architecture patterns." },
 ];
 
 export const StoryTimeline = () => {
