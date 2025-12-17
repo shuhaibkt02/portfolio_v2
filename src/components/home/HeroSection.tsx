@@ -62,16 +62,16 @@ export const HeroSection = () => {
                 </motion.h1>
 
                 <motion.div
-                    className="mt-6 flex h-12 items-center justify-center text-2xl font-light text-zinc-400 sm:text-3xl md:text-4xl"
+                    className="mt-6 min-h-[3rem] h-auto text-center text-xl font-light text-zinc-400 sm:text-3xl md:text-4xl"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.8, delay: 0.4 }}
                 >
                     <span>I build&nbsp;</span>
-                    <span className="font-mono text-foreground">
+                    <span className="font-mono text-foreground break-words">
                         {TYPING_STRINGS[textIndex].substring(0, charIndex)}
+                        <span className="animate-pulse text-flutter-blue inline-block">|</span>
                     </span>
-                    <span className="animate-pulse text-flutter-blue">|</span>
                 </motion.div>
 
                 <motion.div

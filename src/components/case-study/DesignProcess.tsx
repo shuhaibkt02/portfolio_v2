@@ -3,8 +3,17 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 
-export const DesignProcess = () => {
+type DesignProcessProps = {
+    designProcess?: {
+        beforeImage: string;
+        afterImage: string;
+    };
+};
+
+export const DesignProcess = ({ designProcess }: DesignProcessProps) => {
     const [sliderValue, setSliderValue] = useState(50);
+
+    if (!designProcess) return null;
 
     return (
         <section className="bg-zinc-900 py-24 text-white">
@@ -14,8 +23,9 @@ export const DesignProcess = () => {
                 <div className="relative mx-auto aspect-video w-full max-w-5xl overflow-hidden rounded-2xl bg-black border border-white/10 shadow-2xl">
                     {/* Background Image (After) */}
                     <div className="absolute inset-0 flex items-center justify-center bg-blue-900/20 text-blue-200">
-                        <span className="text-4xl font-bold">High-Fidelity (After)</span>
+                        {/* <span className="text-4xl font-bold">High-Fidelity (After)</span> */}
                         {/* Replace this div with an actual <img> tag when assets are available */}
+                        <img src={designProcess.afterImage} alt="After Design" className="object-cover w-full h-full" />
                     </div>
 
                     {/* Foreground Image (Before) - Clipped */}
@@ -25,7 +35,8 @@ export const DesignProcess = () => {
                     >
                         <div className="absolute inset-0 flex items-center justify-center bg-zinc-800 w-full h-full">
                             {/* This inner div ensures image stays centered/sized correctly regardless of clip */}
-                            <span className="text-4xl font-bold">Wireframe (Before)</span>
+                            {/* <span className="text-4xl font-bold">Wireframe (Before)</span> */}
+                            <img src={designProcess.beforeImage} alt="Before Wireframe" className="object-cover w-full h-full" />
                         </div>
                     </div>
 

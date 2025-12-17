@@ -45,6 +45,22 @@ export const CaseStudyHero = ({ study }: CaseStudyHeroProps) => {
                     <p className="mt-6 max-w-2xl text-xl text-zinc-300">
                         Lead Mobile Developer & UI/UX Designer
                     </p>
+
+                    {study.playStoreUrl && (
+                        <div className="mt-8">
+                            <a
+                                href={study.playStoreUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-black transition-transform hover:scale-105 active:scale-95"
+                            >
+                                <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-1.61-.77V2.583a.996.996 0 0 1 1.61-.77zM15.208 13.414L19.378 17.584l-4.17-4.17zM14.5 12l4.878 4.878 2.536-1.427a1 1 0 0 0 .001-1.742l-2.537-1.427L14.5 12zM3.609 1.814a.996.996 0 0 0-.609.919v1.077l10.884 10.884-10.275-12.88z" />
+                                </svg>
+                                Get it on Google Play
+                            </a>
+                        </div>
+                    )}
                 </motion.div>
             </div>
         </section>

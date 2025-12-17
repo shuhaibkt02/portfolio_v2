@@ -9,7 +9,7 @@ Use this to track what needs to be updated.
 **Page Headers:**
 - **Challenge Section**: "The Challenge", "Problem Statement"
 - **Research Section**: "Research & Discovery"
-- **Design Process**: "Design Iterations", "Drag the slider to compare the wireframe with the final UI.", "Wireframe (Before)", "High-Fidelity (After)"
+- **Design Process**: "Design Iterations" (Optional: Hidden for Enterprise projects)
 - **Key Features**: "Key Features"
 - **Tech Stack**: "Technologies Used", "Project Gallery"
 
@@ -56,6 +56,7 @@ Use this to track what needs to be updated.
 - **Category**: Enterprise Mobile Solution
 - **Description**: An advanced evolution combining primary and secondary sales into a unified platform, built on a robust Offline-First Workflow Architecture.
 - **Metrics**: "Route Intelligence", "Sync Reliability", "Expense Automation"
+- **Play Store**: [Link](https://play.google.com/store/apps/details?id=com.spiralcode.waves2)
 
 **The Challenge**
 - **Description**: Merging primary and secondary sales created complexity in validation and data synchronization. The goal was to enforce strict sales discipline (e.g., forced checkout) while ensuring zero data loss in offline environments.
@@ -70,7 +71,7 @@ Use this to track what needs to be updated.
 - **Expense Automation** (Icon: chart-bar): Travel expenses are calculated automatically based on daily distance traveled, eliminating manual entry errors.
 
 **Tech Stack**
-- Flutter, Riverpod, Kotlin Plugin, Room DB, WorkManager
+- Flutter, BLoC, Clean Arch, Kotlin Plugin, Sentry, Firebase Crashlytics, Remote Config
 
 **Research**
 - **Sync Architecture**: Adopted a 'Fire-and-Forget' UI pattern. Time & Location are captured at trigger, while heavy resolution (Google Maps API) happens in the background.

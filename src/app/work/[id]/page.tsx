@@ -46,7 +46,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ id: 
                 painPoints={study.challenge?.painPoints || []}
             />
             <ResearchTimeline research={study.research || []} />
-            <DesignProcess />
+            <DesignProcess designProcess={study.designProcess} />
             <KeyFeatures features={study.features || []} />
             <TechStackGallery
                 techStack={study.techStack || []}

@@ -7,6 +7,7 @@ export type CaseStudy = {
     techStack: string[];
     metrics: string[];
     color: string;
+    playStoreUrl?: string;
 
     // Detailed Content
     challenge: {
@@ -33,6 +34,11 @@ export type CaseStudy = {
         description: string;
         iconName: "search" | "users" | "layout" | "code" | "database" | "server" | "shield";
     }[];
+
+    designProcess?: {
+        beforeImage: string;
+        afterImage: string;
+    };
 };
 
 export const caseStudies: CaseStudy[] = [
@@ -96,9 +102,10 @@ export const caseStudies: CaseStudy[] = [
         category: "Enterprise Mobile Solution",
         description: "An advanced evolution combining primary and secondary sales into a unified platform, built on a robust Offline-First Workflow Architecture.",
         thumbnail: "/projects/waves2/thumb.jpg",
-        techStack: ["Flutter", "BLoC", "Clean Arch", "Kotlin Plugin"],
+        techStack: ["Flutter", "BLoC", "Clean Arch", "Kotlin Plugin", "Sentry", "Firebase Crashlytics", "Remote Config"],
         metrics: ["Route Intelligence", "Sync Reliability", "Expense Automation"],
         color: "#0288D1",
+        playStoreUrl: "https://play.google.com/store/apps/details?id=com.spiralcode.waves2",
 
         challenge: {
             description: "Merging primary and secondary sales created complexity in validation and data synchronization. The goal was to enforce strict sales discipline (e.g., forced checkout) while ensuring zero data loss in offline environments.",
