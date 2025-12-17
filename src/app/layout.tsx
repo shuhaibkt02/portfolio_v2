@@ -29,6 +29,8 @@ import { ExperienceProvider } from "@/context/ExperienceContext";
 import { SmoothScroll } from "@/components/ui/SmoothScroll";
 import { SoundManager } from "@/components/ui/SoundManager";
 
+import { Analytics } from "@vercel/analytics/next";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -46,6 +48,7 @@ export default function RootLayout({
           <CustomCursor />
           <NavBar />
           {children}
+          <Analytics />
         </ExperienceProvider>
       </body>
     </html>
