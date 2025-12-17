@@ -8,6 +8,10 @@ export type CaseStudy = {
     metrics: string[];
     color: string;
     playStoreUrl?: string;
+    webUrl?: string;
+    role?: string;
+    company?: string;
+    date?: string;
 
     // Detailed Content
     challenge: {
@@ -51,6 +55,8 @@ export const caseStudies: CaseStudy[] = [
         techStack: ["Flutter", "Riverpod", "Kotlin Plugin", "Hive", "PDF Gen"],
         metrics: ["Offline Primary Sales", "Thermal Printing", "Inventory Reports"],
         color: "#0468D7",
+        date: "Feb 2025 - Present",
+        company: "Spiralcode Innovation",
 
         challenge: {
             description: "Field salespersons needed a robust tool to manage primary orders, returns, and inventory without relying on constant internet connectivity. The challenge was to integrate complex accounting and thermal printing features into a mobile-first experience.",
@@ -105,6 +111,8 @@ export const caseStudies: CaseStudy[] = [
         techStack: ["Flutter", "BLoC", "Clean Arch", "Kotlin Plugin", "Sentry", "Firebase Crashlytics", "Remote Config"],
         metrics: ["Route Intelligence", "Sync Reliability", "Expense Automation"],
         color: "#0288D1",
+        company: "Spiralcode Innovation",
+        date: "Feb 2025 - Present", 
         playStoreUrl: "https://play.google.com/store/apps/details?id=com.spiralcode.waves2",
 
         challenge: {
@@ -160,6 +168,8 @@ export const caseStudies: CaseStudy[] = [
         techStack: ["Flutter", "Riverpod", "Kotlin Plugin", "Room DB"],
         metrics: ["Accurate Mileage", "Performance Audit", "Dual Dashboard"],
         color: "#7B1FA2",
+        company: "Spiralcode Innovation",
+        date: "Feb 2025 - Present",
 
         challenge: {
             description: "Salary calculations depended heavily on accurate distance tracking. The challenge was to create a tamper-proof tracking system that works reliably in the background while conserving battery.",
@@ -207,55 +217,58 @@ export const caseStudies: CaseStudy[] = [
     },
     {
         id: "cakenook",
-        title: "CakeNook e-Commerce",
-        category: "Full Stack Web",
-        description: "Production e-commerce web application for a cake business, focusing on smooth ordering and SEO performance.",
+        title: "CakeNook",
+        category: "Hyper-Local Marketplace",
+        description: "A premium celebration ecosystem connecting customers with the finest local bakers and artisans for gourmet cakes, gifts, and surprises.",
         thumbnail: "/projects/cakenook/thumb.jpg",
         techStack: ["Next.js", "TypeScript", "React", "Tailwind"],
-        metrics: ["SEO Optimized", "Mobile Responsive", "Production Live"],
+        metrics: ["Hyper-Local", "SEO Optimized", "Production Live"],
         color: "#FF4081",
+        webUrl: "https://cakenook.in/",
+        role: "Full Stack Developer & UI/UX Designer",
+        date: "Dec 2025",
 
         challenge: {
-            description: "The client needed a professional, responsive platform to replace manual ordering. Key requirements were search engine visibility and a seamless checkout flow for custom products.",
+            description: "The goal was to build a multi-vendor platform that bridges the gap between local artisanal creators and customers seeking premium celebrations. It required a seamless digital experience that preserves the emotional essence of gifting while ensuring reliable, hyper-local delivery.",
             painPoints: [
-                { title: "Low Visibility", color: "red" },
-                { title: "Manual Orders", color: "orange" },
-                { title: "Mobile Experience", color: "yellow" },
+                { title: "Fragmented Market", color: "red" },
+                { title: "Logistics Complexity", color: "orange" },
+                { title: "Quality Assurance", color: "yellow" },
             ]
         },
 
         features: [
             {
-                id: "commerce",
-                label: "Commerce",
+                id: "marketplace",
+                label: "Marketplace",
                 iconName: "shopping-cart",
-                title: "Ordering Flow",
-                description: "Full cart and checkout experience optimized for mobile devices.",
-                metric: "Streamlined",
+                title: "Curated Ecosystem",
+                description: "A platform connecting users with trusted local creators for cakes, flowers, and gifts, featuring vendor-specific management.",
+                metric: "Hyper-local",
             },
             {
                 id: "tech",
                 label: "Tech",
                 iconName: "code",
                 title: "Modern Stack",
-                description: "Built with Next.js and TypeScript for type safety and server-side rendering benefits.",
+                description: "Built with Next.js and TypeScript to ensure high performance, SEO visibility, and a smooth mobile-first experience.",
                 metric: "High Performance",
             },
             {
-                id: "media",
-                label: "SEO",
+                id: "discovery",
+                label: "Discovery",
                 iconName: "globe",
-                title: "Discoverability",
-                description: "Implemented SEO best practices to ensure the business is easily found by local customers.",
-                metric: "Ranked",
+                title: "Smart Discovery",
+                description: "Optimized for local search to help users find the nearest premium bakers and gifts with ease.",
+                metric: "SEO Optimized",
             }
         ],
 
         gallery: [1, 2, 3, 4].map(i => `/projects/cakenook/screen-${i}.jpg`),
 
         research: [
-            { title: "UX", iconName: "layout", description: "Simplifying the checkout process reduced cart abandonment." },
-            { title: "Stack", iconName: "code", description: "Next.js selected for superior SEO capabilities compared to SPA." },
+            { title: "Emotional UX", iconName: "layout", description: "Designed an interface that emphasizes elegance and emotion, aligning with the tagline 'A Surprise that Speaks from the Heart'." },
+            { title: "Local First", iconName: "search", description: "Prioritized location-based filtering to ensure freshness and timely delivery for perishable gourmet items." },
         ]
     },
 ];

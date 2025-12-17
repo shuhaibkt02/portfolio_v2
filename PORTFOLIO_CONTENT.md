@@ -111,27 +111,27 @@ Use this to track what needs to be updated.
 
 ---
 
-### Project 4: CakeNook e-Commerce (`cakenook`)
+### Project 4: CakeNook (`cakenook`)
 *Status: Live*
 
 **Core Info**
-- **Title**: CakeNook e-Commerce
-- **Category**: Full Stack Web
-- **Description**: Production e-commerce web application for a cake business, focusing on smooth ordering and SEO performance.
-- **Metrics**: "SEO Optimized", "Mobile Responsive", "Production Live"
+- **Title**: CakeNook
+- **Category**: Hyper-Local Marketplace
+- **Description**: A premium celebration ecosystem connecting customers with the finest local bakers and artisans for gourmet cakes, gifts, and surprises.
+- **Metrics**: "Hyper-Local", "SEO Optimized", "Production Live"
 
 **The Challenge**
-- **Description**: The client needed a professional, responsive platform to replace manual ordering. Key requirements were search engine visibility and a seamless checkout flow for custom products.
+- **Description**: The goal was to build a multi-vendor platform that bridges the gap between local artisanal creators and customers seeking premium celebrations. It required a seamless digital experience that preserves the emotional essence of gifting while ensuring reliable, hyper-local delivery.
 - **Pain Points**:
-  - "Low Visibility" (Color: red)
-  - "Manual Orders" (Color: orange)
-  - "Mobile Experience" (Color: yellow)
+  - "Fragmented Market" (Color: red)
+  - "Logistics Complexity" (Color: orange)
+  - "Quality Assurance" (Color: yellow)
 
 **Key Features**
-- **Ordering Flow** (Icon: shopping-cart): Full cart and checkout experience optimized for mobile devices.
-- **Modern Stack** (Icon: code): Built with Next.js and TypeScript for type safety and server-side rendering benefits.
-- **Discoverability** (Icon: globe): Implemented SEO best practices to ensure the business is easily found by local customers.
+- **Curated Ecosystem** (Icon: shopping-cart): A platform connecting users with trusted local creators for cakes, flowers, and gifts, featuring vendor-specific management.
+- **Modern Stack** (Icon: code): Built with Next.js and TypeScript to ensure high performance, SEO visibility, and a smooth mobile-first experience.
+- **Smart Discovery** (Icon: globe): Optimized for local search to help users find the nearest premium bakers and gifts with ease.
 
 **Research**
-- **UX**: Simplifying the checkout process reduced cart abandonment.
-- **Stack**: Next.js selected for superior SEO capabilities compared to SPA.
+- **Emotional UX**: Designed an interface that emphasizes elegance and emotion, aligning with the tagline 'A Surprise that Speaks from the Heart'.
+- **Local First**: Prioritized location-based filtering to ensure freshness and timely delivery for perishable gourmet items.
