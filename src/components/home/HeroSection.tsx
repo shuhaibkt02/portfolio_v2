@@ -8,7 +8,7 @@ import { ParticleBackground } from "./ParticleBackground";
 
 export const HeroSection = () => {
     return (
-        <section className="relative flex h-screen w-full items-center justify-center overflow-hidden bg-background">
+        <section id="home" className="relative flex h-screen w-full items-center justify-center overflow-hidden bg-background">
             <ParticleBackground />
 
             <div className="z-10 flex flex-col items-center px-4 text-center sm:px-8">
