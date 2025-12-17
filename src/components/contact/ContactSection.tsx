@@ -29,7 +29,7 @@ export const ContactSection = () => {
 
                             <div className="flex flex-col gap-4 sm:flex-row">
                                 <a
-                                    href="mailto:shuhaib@example.com"
+                                    href="mailto:shuhaibkt02@gmail.com"
                                     className="flex items-center justify-center gap-2 rounded-full bg-flutter-blue px-6 py-3 font-medium text-white transition-transform hover:scale-105"
                                 >
                                     <Mail size={20} />
@@ -50,12 +50,12 @@ export const ContactSection = () => {
                             <div>
                                 <h3 className="mb-4 text-sm font-bold uppercase tracking-widest text-zinc-500">Connect</h3>
                                 <div className="flex flex-col gap-4">
-                                    <a href="https://github.com/shuhaib" target="_blank" className="flex items-center gap-3 text-zinc-300 hover:text-white group">
+                                    <a href="https://github.com/shuhaibkt02" target="_blank" className="flex items-center gap-3 text-zinc-300 hover:text-white group">
                                         <Github size={24} className="group-hover:text-flutter-blue transition-colors" />
-                                        <span>github.com/shuhaib</span>
+                                        <span>github.com/shuhaibkt02</span>
                                         <ArrowRight size={16} className="opacity-0 -translate-x-2 transition-all group-hover:opacity-100 group-hover:translate-x-0" />
                                     </a>
-                                    <a href="https://linkedin.com/in/shuhaib" target="_blank" className="flex items-center gap-3 text-zinc-300 hover:text-white group">
+                                    <a href="https://www.linkedin.com/in/shuhaibkt/" target="_blank" className="flex items-center gap-3 text-zinc-300 hover:text-white group">
                                         <Linkedin size={24} className="group-hover:text-flutter-blue transition-colors" />
                                         <span>linkedin.com/in/shuhaib</span>
                                         <ArrowRight size={16} className="opacity-0 -translate-x-2 transition-all group-hover:opacity-100 group-hover:translate-x-0" />
