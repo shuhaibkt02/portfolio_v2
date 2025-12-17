@@ -7,27 +7,247 @@ export type CaseStudy = {
     techStack: string[];
     metrics: string[];
     color: string;
+
+    // Detailed Content
+    challenge: {
+        description: string;
+        painPoints: {
+            title: string;
+            color: "red" | "orange" | "yellow" | "blue" | "green" | "purple";
+        }[];
+    };
+
+    features: {
+        id: string;
+        label: string; // Tab label
+        iconName: "camera" | "map" | "wifi-off" | "users" | "shopping-cart" | "chart-bar" | "globe" | "shield" | "database" | "code";
+        title: string;
+        description: string;
+        metric: string;
+    }[];
+
+    gallery: string[];
+
+    research: {
+        title: string;
+        description: string;
+        iconName: "search" | "users" | "layout" | "code" | "database" | "server" | "shield";
+    }[];
 };
 
 export const caseStudies: CaseStudy[] = [
     {
-        id: "waves-ozone",
-        title: "WAVES & Ozone - Ent. Field Sales",
+        id: "waves",
+        title: "WAVES - Primary Sales ERP",
         category: "Enterprise Mobile Solution",
-        description: "Offline-first field sales and workforce management platform with high-precision location tracking.",
-        thumbnail: "/projects/erp-thumb.jpg", // Placeholder
-        techStack: ["Flutter", "Kotlin", "Clean Arch", "Riverpod", "Hive"],
-        metrics: ["30% GPS Accuracy Boost", "60% Crash Reduction", "Offline Reliability"],
+        description: "A primary-sales-focused ERP mobile application for field salespersons and distributors, handling the complete sales lifecycle offline.",
+        thumbnail: "/projects/waves/thumb.jpg",
+        techStack: ["Flutter", "Riverpod", "Kotlin Plugin", "Hive", "PDF Gen"],
+        metrics: ["Offline Primary Sales", "Thermal Printing", "Inventory Reports"],
         color: "#0468D7",
+
+        challenge: {
+            description: "Field salespersons needed a robust tool to manage primary orders, returns, and inventory without relying on constant internet connectivity. The challenge was to integrate complex accounting and thermal printing features into a mobile-first experience.",
+            painPoints: [
+                { title: "Manual Invoicing Errors", color: "red" },
+                { title: "Stock Discrepancies", color: "orange" },
+                { title: "No Field Visibility", color: "yellow" },
+            ]
+        },
+
+        features: [
+            {
+                id: "erp",
+                label: "ERP Core",
+                iconName: "chart-bar",
+                title: "Sales & Distribution",
+                description: "Complete workflow for primary order creation, invoice generation, sales returns, and route-based customer management.",
+                metric: "Full lifecycle support",
+            },
+            {
+                id: "inventory",
+                label: "Inventory",
+                iconName: "database",
+                title: "Stock & Accounts",
+                description: "Manages cash accounts, inventory stock reports, and expense tracking. Supports thermal invoice printing directly from the device.",
+                metric: "Real-time stock view",
+            },
+            {
+                id: "tracking",
+                label: "Tracking",
+                iconName: "map",
+                title: "Background Location",
+                description: "Custom native Android Kotlin plugin for 15-minute interval background tracking via foreground service.",
+                metric: "Precise field data",
+            }
+        ],
+
+        gallery: [1, 2, 3, 4].map(i => `/projects/waves/screen-${i}.jpg`),
+
+        research: [
+            { title: "Requirement", iconName: "search", description: "Distributors needed a way to print invoices on the spot." },
+            { title: "tech-choice", iconName: "code", description: "Chosen Flutter for UI consistency and Native Kotlin for robust background services." },
+            { title: "Architecture", iconName: "server", description: "Implemented EventChannel for seamless communication between Dart and Native layers." },
+        ]
+    },
+    {
+        id: "waves-2",
+        title: "WAVES 2 - Adv. Sales Platform",
+        category: "Enterprise Mobile Solution",
+        description: "An advanced evolution combining primary distributor sales and secondary direct shop sales into a unified, route-intelligent platform.",
+        thumbnail: "/projects/waves2/thumb.jpg",
+        techStack: ["Flutter", "BLoC", "Clean Arch", "Kotlin Plugin"],
+        metrics: ["Route Intelligence", "Sync Reliability", "Expense Automation"],
+        color: "#0288D1",
+
+        challenge: {
+            description: "Merging primary and secondary sales created complexity in validation and data synchronization. The goal was to enforce strict sales discipline (e.g., forced checkout) while ensuring zero data loss in offline environments.",
+            painPoints: [
+                { title: "Data Synchronization Logic", color: "red" },
+                { title: "Fake Shop Visits", color: "orange" },
+                { title: "Complex Validation", color: "yellow" },
+            ]
+        },
+
+        features: [
+            {
+                id: "secondary",
+                label: "Secondary Sales",
+                iconName: "shopping-cart",
+                title: "Direct Shop Sales",
+                description: "Enables direct shop order creation and shop-level tracking. Enforces strict checkout rules before visiting the next shop.",
+                metric: "Disciplined workflows",
+            },
+            {
+                id: "sync",
+                label: "Smart Sync",
+                iconName: "wifi-off",
+                title: "Offline Architecture",
+                description: "User actions are saved locally immediately. Background services handle retry queues and data synchronization to prevent silent data loss.",
+                metric: "Zero data loss",
+            },
+            {
+                id: "expense",
+                label: "Expenses",
+                iconName: "chart-bar",
+                title: "Expense Automation",
+                description: "Travel expenses are calculated automatically based on daily distance traveled, eliminating manual entry errors.",
+                metric: "Auto-calculated",
+            }
+        ],
+
+        gallery: [1, 2, 3, 4].map(i => `/projects/waves2/screen-${i}.jpg`),
+
+        research: [
+            { title: "Sync Logic", iconName: "database", description: "Designed a 'User First' sync model where UI never blocks for network." },
+            { title: "Validation", iconName: "shield", description: "Implemented mandatory live photo proof for shop visits." },
+            { title: "Optimization", iconName: "code", description: "Used Intelligent Caching Manager to speed up reference data loading." },
+        ]
+    },
+    {
+        id: "ozone",
+        title: "Ozone - Activity Tracker",
+        category: "Workforce Management",
+        description: "Focused employee activity and distance-tracking application used for salary calculation and performance evaluation.",
+        thumbnail: "/projects/ozone/thumb.jpg",
+        techStack: ["Flutter", "Riverpod", "Kotlin Plugin", "Room DB"],
+        metrics: ["Accurate Mileage", "Performance Audit", "Dual Dashboard"],
+        color: "#7B1FA2",
+
+        challenge: {
+            description: "Salary calculations depended heavily on accurate distance tracking. The challenge was to create a tamper-proof tracking system that works reliably in the background while conserving battery.",
+            painPoints: [
+                { title: "GPS Drift", color: "red" },
+                { title: "Battery Optimization", color: "orange" },
+                { title: "Tamper Proofing", color: "yellow" },
+            ]
+        },
+
+        features: [
+            {
+                id: "tracking",
+                label: "Distance",
+                iconName: "map",
+                title: "Precision Tracking",
+                description: "Native Kotlin foreground service with 15-minute interval integrated via EventChannel. Uses Coroutines for heavy processing.",
+                metric: "Salary-grade accuracy",
+            },
+            {
+                id: "dashboard",
+                label: "Dashboards",
+                iconName: "users",
+                title: "Dual Perspective",
+                description: "Employee dashboard for field actions (attendance, visits) and Manager dashboard for monitoring and auditing performance.",
+                metric: "Manager oversight",
+            },
+            {
+                id: "offline",
+                label: "Offline",
+                iconName: "wifi-off",
+                title: "Offline-First Scope",
+                description: "Critical actions like Attendance and Visit Checkouts work fully offline, syncing when connectivity is restored.",
+                metric: "Always available",
+            }
+        ],
+
+        gallery: [1, 2, 3, 4].map(i => `/projects/ozone/screen-${i}.jpg`),
+
+        research: [
+            { title: "System", iconName: "server", description: "Built a retry persistence layer using SharedPreferences to handle app kills." },
+            { title: "Audit", iconName: "shield", description: "Developed correlation logic to verify distance against business performance." },
+        ]
     },
     {
         id: "cakenook",
         title: "CakeNook e-Commerce",
         category: "Full Stack Web",
-        description: "Customer-facing platform for browsing, ordering, and managing cake purchases.",
-        thumbnail: "/projects/sales-thumb.jpg", // Placeholder
-        techStack: ["Next.js", "TypeScript", "React", "PostgreSQL"],
-        metrics: ["SEO Optimized", "Responsive UI", "Smooth Ordering Flow"],
+        description: "Production e-commerce web application for a cake business, focusing on smooth ordering and SEO performance.",
+        thumbnail: "/projects/cakenook/thumb.jpg",
+        techStack: ["Next.js", "TypeScript", "React", "Tailwind"],
+        metrics: ["SEO Optimized", "Mobile Responsive", "Production Live"],
         color: "#FF4081",
+
+        challenge: {
+            description: "The client needed a professional, responsive platform to replace manual ordering. Key requirements were search engine visibility and a seamless checkout flow for custom products.",
+            painPoints: [
+                { title: "Low Visibility", color: "red" },
+                { title: "Manual Orders", color: "orange" },
+                { title: "Mobile Experience", color: "yellow" },
+            ]
+        },
+
+        features: [
+            {
+                id: "commerce",
+                label: "Commerce",
+                iconName: "shopping-cart",
+                title: "Ordering Flow",
+                description: "Full cart and checkout experience optimized for mobile devices.",
+                metric: "Streamlined",
+            },
+            {
+                id: "tech",
+                label: "Tech",
+                iconName: "code",
+                title: "Modern Stack",
+                description: "Built with Next.js and TypeScript for type safety and server-side rendering benefits.",
+                metric: "High Performance",
+            },
+            {
+                id: "media",
+                label: "SEO",
+                iconName: "globe",
+                title: "Discoverability",
+                description: "Implemented SEO best practices to ensure the business is easily found by local customers.",
+                metric: "Ranked",
+            }
+        ],
+
+        gallery: [1, 2, 3, 4].map(i => `/projects/cakenook/screen-${i}.jpg`),
+
+        research: [
+            { title: "UX", iconName: "layout", description: "Simplifying the checkout process reduced cart abandonment." },
+            { title: "Stack", iconName: "code", description: "Next.js selected for superior SEO capabilities compared to SPA." },
+        ]
     },
 ];

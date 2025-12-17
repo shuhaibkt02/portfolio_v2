@@ -2,7 +2,24 @@
 
 import { motion } from "framer-motion";
 
-export const ChallengeSection = () => {
+type ChallengeSectionProps = {
+    description: string;
+    painPoints: {
+        title: string;
+        color: string;
+    }[];
+};
+
+const colorMap: Record<string, string> = {
+    red: "bg-red-500/10 text-red-500",
+    orange: "bg-orange-500/10 text-orange-500",
+    yellow: "bg-yellow-500/10 text-yellow-500",
+    blue: "bg-blue-500/10 text-blue-500",
+    green: "bg-green-500/10 text-green-500",
+    purple: "bg-purple-500/10 text-purple-500",
+};
+
+export const ChallengeSection = ({ description, painPoints }: ChallengeSectionProps) => {
     return (
         <section className="bg-black py-24 text-white">
             <div className="mx-auto grid max-w-7xl grid-cols-1 gap-16 px-6 sm:px-12 lg:grid-cols-2">
@@ -25,7 +42,17 @@ export const ChallengeSection = () => {
                         transition={{ delay: 0.2 }}
                         className="mb-8 text-3xl font-bold leading-snug font-heading sm:text-4xl"
                     >
-                        How do you create an enterprise-grade ERP solution that works offline and tracks field employees in real-time?
+                        {/* 
+                            For now, keeping the title static "The Challenge" above or generic. 
+                            The description below is dynamic.
+                            If we want a dynamic headline, we can add it to the schema later.
+                            Using a generic headline or derived from description if needed, 
+                            but for now sticking to the layout provided in the original code 
+                            which had a specific question headline. 
+                            Since I didn't add a 'challengeHeadline' to schema, I'll use a generic one 
+                            or just allow the description to do the heavy lifting.
+                        */}
+                        Problem Statement
                     </motion.h3>
 
                     <motion.p
@@ -35,9 +62,7 @@ export const ChallengeSection = () => {
                         transition={{ delay: 0.3 }}
                         className="text-lg leading-relaxed text-zinc-400"
                     >
-                        Existing solutions were clunky, required constant internet connectivity, and drained device battery rapidly.
-                        The goal was to build a native-performance application that could handle complex data synchronization
-                        while providing a delightful user experience.
+                        {description}
                     </motion.p>
                 </div>
 
@@ -53,15 +78,11 @@ export const ChallengeSection = () => {
                             className="aspect-square rounded-full border border-zinc-800 bg-zinc-900/50 p-8"
                         >
                             <div className="flex h-full w-full flex-col items-center justify-center gap-4 text-center">
-                                <div className="rounded-lg bg-red-500/10 p-4 text-red-500">
-                                    Offline Work Environments
-                                </div>
-                                <div className="rounded-lg bg-orange-500/10 p-4 text-orange-500">
-                                    Inaccurate Attendance
-                                </div>
-                                <div className="rounded-lg bg-yellow-500/10 p-4 text-yellow-500">
-                                    Battery Drain
-                                </div>
+                                {painPoints.map((point, i) => (
+                                    <div key={i} className={`rounded-lg p-4 ${colorMap[point.color] || colorMap.red}`}>
+                                        {point.title}
+                                    </div>
+                                ))}
                             </div>
                         </motion.div>
                     </div>

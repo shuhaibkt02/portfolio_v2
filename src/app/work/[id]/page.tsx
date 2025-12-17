@@ -41,11 +41,17 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ id: 
     return (
         <main className="min-h-screen bg-black text-white pb-24">
             <CaseStudyHero study={study} />
-            <ChallengeSection />
-            <ResearchTimeline />
+            <ChallengeSection
+                description={study.challenge?.description || "Description unavailable."}
+                painPoints={study.challenge?.painPoints || []}
+            />
+            <ResearchTimeline research={study.research || []} />
             <DesignProcess />
-            <KeyFeatures />
-            <TechStackGallery />
+            <KeyFeatures features={study.features || []} />
+            <TechStackGallery
+                techStack={study.techStack || []}
+                galleryImages={study.gallery || []}
+            />
         </main>
     );
 }

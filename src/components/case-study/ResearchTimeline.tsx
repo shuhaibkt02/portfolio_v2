@@ -1,15 +1,26 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Search, Users, Layout } from "lucide-react";
+import { Search, Users, Layout, Code, Database, Server } from "lucide-react";
 
-export const ResearchTimeline = () => {
-    const phases = [
-        { title: "Discovery", icon: Search, description: "Stakeholder interviews revealed that 40% of field data was lost due to sync errors." },
-        { title: "Personas", icon: Users, description: "Created 'Field Officer Arjun' and 'Manager Priya' to guide the UX decisions." },
-        { title: "Wireframing", icon: Layout, description: "Iterated on 3 versions of the offline queue mechanism before finalizing." },
-    ];
+const iconMap: Record<string, any> = {
+    search: Search,
+    users: Users,
+    layout: Layout,
+    code: Code,
+    database: Database,
+    server: Server,
+};
 
+type ResearchTimelineProps = {
+    research: {
+        title: string;
+        description: string;
+        iconName: string;
+    }[];
+};
+
+export const ResearchTimeline = ({ research }: ResearchTimelineProps) => {
     return (
         <section className="bg-zinc-950 py-24 text-white">
             <div className="mx-auto max-w-7xl px-6 sm:px-12">
@@ -20,8 +31,9 @@ export const ResearchTimeline = () => {
                     <div className="absolute left-8 top-0 h-full w-px bg-zinc-800 md:left-1/2 md:-translate-x-1/2" />
 
                     <div className="flex flex-col gap-12 md:gap-24">
-                        {phases.map((phase, index) => {
+                        {research.map((phase, index) => {
                             const isEven = index % 2 === 0;
+                            const Icon = iconMap[phase.iconName] || Search;
                             return (
                                 <motion.div
                                     key={index}
@@ -39,7 +51,7 @@ export const ResearchTimeline = () => {
                                     </div>
 
                                     <div className="relative z-10 flex h-16 w-16 shrink-0 items-center justify-center rounded-full border-4 border-zinc-950 bg-zinc-900 text-flutter-blue shadow-xl">
-                                        <phase.icon size={24} />
+                                        <Icon size={24} />
                                     </div>
 
                                     <div className="flex-1">
