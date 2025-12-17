@@ -57,7 +57,7 @@ export const HeroSection = () => {
                     </a>
 
                     <a
-                        href="/resume.pdf"
+                        href="/SHUHAIB_KT.pdf"
                         className="group flex items-center justify-center gap-2 rounded-full border border-zinc-700 bg-transparent px-8 py-3 text-lg font-medium text-zinc-300 transition-all hover:border-zinc-500 hover:text-white"
                     >
                         <Download size={20} />
