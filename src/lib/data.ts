@@ -47,6 +47,62 @@ export type CaseStudy = {
 
 export const caseStudies: CaseStudy[] = [
     {
+        id: "cakenook",
+        title: "CakeNook",
+        category: "Hyper-Local Marketplace",
+        description: "A premium celebration ecosystem connecting customers with the finest local bakers and artisans for gourmet cakes, gifts, and surprises.",
+        thumbnail: "/projects/cakenook/thumb.jpg",
+        techStack: ["Next.js", "TypeScript", "React", "Tailwind"],
+        metrics: ["Hyper-Local", "SEO Optimized", "Production Live"],
+        color: "#FF4081",
+        webUrl: "https://cakenook.in/",
+        role: "Full Stack Developer & UI/UX Designer",
+        date: "Dec 2025",
+
+        challenge: {
+            description: "The goal was to build a multi-vendor platform that bridges the gap between local artisanal creators and customers seeking premium celebrations. It required a seamless digital experience that preserves the emotional essence of gifting while ensuring reliable, hyper-local delivery.",
+            painPoints: [
+                { title: "Fragmented Market", color: "red" },
+                { title: "Logistics Complexity", color: "orange" },
+                { title: "Quality Assurance", color: "yellow" },
+            ]
+        },
+
+        features: [
+            {
+                id: "marketplace",
+                label: "Marketplace",
+                iconName: "shopping-cart",
+                title: "Curated Ecosystem",
+                description: "A platform connecting users with trusted local creators for cakes, flowers, and gifts, featuring vendor-specific management.",
+                metric: "Hyper-local",
+            },
+            {
+                id: "tech",
+                label: "Tech",
+                iconName: "code",
+                title: "Modern Stack",
+                description: "Built with Next.js and TypeScript to ensure high performance, SEO visibility, and a smooth mobile-first experience.",
+                metric: "High Performance",
+            },
+            {
+                id: "discovery",
+                label: "Discovery",
+                iconName: "globe",
+                title: "Smart Discovery",
+                description: "Optimized for local search to help users find the nearest premium bakers and gifts with ease.",
+                metric: "SEO Optimized",
+            }
+        ],
+
+        gallery: [1, 2, 3, 4].map(i => `/projects/cakenook/screen-${i}.jpg`),
+
+        research: [
+            { title: "Emotional UX", iconName: "layout", description: "Designed an interface that emphasizes elegance and emotion, aligning with the tagline 'A Surprise that Speaks from the Heart'." },
+            { title: "Local First", iconName: "search", description: "Prioritized location-based filtering to ensure freshness and timely delivery for perishable gourmet items." },
+        ]
+    },
+    {
         id: "waves",
         title: "WAVES - Primary Sales ERP",
         category: "Enterprise Mobile Solution",
@@ -112,7 +168,7 @@ export const caseStudies: CaseStudy[] = [
         metrics: ["Route Intelligence", "Sync Reliability", "Expense Automation"],
         color: "#0288D1",
         company: "Spiralcode Innovation",
-        date: "Feb 2025 - Present", 
+        date: "Feb 2025 - Present",
         playStoreUrl: "https://play.google.com/store/apps/details?id=com.spiralcode.waves2",
 
         challenge: {
@@ -215,60 +271,5 @@ export const caseStudies: CaseStudy[] = [
             { title: "Audit Trail", iconName: "shield", description: "Every background action logs its execution state (Success/Retry/Fail), creating a transparent audit trail for salary validation." },
         ]
     },
-    {
-        id: "cakenook",
-        title: "CakeNook",
-        category: "Hyper-Local Marketplace",
-        description: "A premium celebration ecosystem connecting customers with the finest local bakers and artisans for gourmet cakes, gifts, and surprises.",
-        thumbnail: "/projects/cakenook/thumb.jpg",
-        techStack: ["Next.js", "TypeScript", "React", "Tailwind"],
-        metrics: ["Hyper-Local", "SEO Optimized", "Production Live"],
-        color: "#FF4081",
-        webUrl: "https://cakenook.in/",
-        role: "Full Stack Developer & UI/UX Designer",
-        date: "Dec 2025",
 
-        challenge: {
-            description: "The goal was to build a multi-vendor platform that bridges the gap between local artisanal creators and customers seeking premium celebrations. It required a seamless digital experience that preserves the emotional essence of gifting while ensuring reliable, hyper-local delivery.",
-            painPoints: [
-                { title: "Fragmented Market", color: "red" },
-                { title: "Logistics Complexity", color: "orange" },
-                { title: "Quality Assurance", color: "yellow" },
-            ]
-        },
-
-        features: [
-            {
-                id: "marketplace",
-                label: "Marketplace",
-                iconName: "shopping-cart",
-                title: "Curated Ecosystem",
-                description: "A platform connecting users with trusted local creators for cakes, flowers, and gifts, featuring vendor-specific management.",
-                metric: "Hyper-local",
-            },
-            {
-                id: "tech",
-                label: "Tech",
-                iconName: "code",
-                title: "Modern Stack",
-                description: "Built with Next.js and TypeScript to ensure high performance, SEO visibility, and a smooth mobile-first experience.",
-                metric: "High Performance",
-            },
-            {
-                id: "discovery",
-                label: "Discovery",
-                iconName: "globe",
-                title: "Smart Discovery",
-                description: "Optimized for local search to help users find the nearest premium bakers and gifts with ease.",
-                metric: "SEO Optimized",
-            }
-        ],
-
-        gallery: [1, 2, 3, 4].map(i => `/projects/cakenook/screen-${i}.jpg`),
-
-        research: [
-            { title: "Emotional UX", iconName: "layout", description: "Designed an interface that emphasizes elegance and emotion, aligning with the tagline 'A Surprise that Speaks from the Heart'." },
-            { title: "Local First", iconName: "search", description: "Prioritized location-based filtering to ensure freshness and timely delivery for perishable gourmet items." },
-        ]
-    },
 ];

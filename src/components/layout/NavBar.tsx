@@ -8,6 +8,7 @@ import { clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { useState, useEffect } from "react";
 import { useScrollSpy } from "@/hooks/useScrollSpy";
+import { ImmersiveToggle } from "@/components/ui/ImmersiveToggle";
 
 const navItems = [
     { name: "Home", href: "#home", icon: Home },
@@ -74,6 +75,10 @@ export const NavBar = () => {
                             </Link>
                         );
                     })}
+
+                    {/* Divider and Toggle */}
+                    <div className="mx-1 h-6 w-px bg-white/10" />
+                    <ImmersiveToggle />
                 </motion.nav>
             </div>
 
@@ -84,13 +89,16 @@ export const NavBar = () => {
                     <span className="text-xl font-bold font-heading">
                         <span className="text-flutter-blue">Shuhaib</span>
                     </span>
-                    <button
-                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                        className="p-2 text-zinc-400 transition-colors hover:text-white"
-                        aria-label="Toggle menu"
-                    >
-                        {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                    </button>
+                    <div className="flex items-center gap-4">
+                        <ImmersiveToggle />
+                        <button
+                            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                            className="p-2 text-zinc-400 transition-colors hover:text-white"
+                            aria-label="Toggle menu"
+                        >
+                            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                        </button>
+                    </div>
                 </div>
 
                 {/* Mobile Menu Overlay */}

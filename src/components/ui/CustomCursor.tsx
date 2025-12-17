@@ -2,8 +2,10 @@
 
 import { useEffect, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
+import { useExperience } from "@/context/ExperienceContext";
 
 export const CustomCursor = () => {
+    const { isImmersive } = useExperience();
     const [isHovered, setIsHovered] = useState(false);
     const cursorX = useMotionValue(-100);
     const cursorY = useMotionValue(-100);
@@ -13,6 +15,8 @@ export const CustomCursor = () => {
     const cursorYSpring = useSpring(cursorY, springConfig);
 
     useEffect(() => {
+        if (!isImmersive) return;
+
         const moveCursor = (e: MouseEvent) => {
             cursorX.set(e.clientX - 16);
             cursorY.set(e.clientY - 16);
@@ -40,7 +44,9 @@ export const CustomCursor = () => {
             window.removeEventListener("mousemove", moveCursor);
             window.removeEventListener("mouseover", handleMouseOver);
         };
-    }, [cursorX, cursorY]);
+    }, [cursorX, cursorY, isImmersive]);
+
+    if (!isImmersive) return null;
 
     return (
         <motion.div
@@ -55,12 +61,14 @@ export const CustomCursor = () => {
                 opacity: 1,
             }}
             initial={{ opacity: 0 }}
+            exit={{ opacity: 0 }}
             transition={{
                 scale: {
                     type: "spring",
                     damping: 20,
                     stiffness: 300,
                 },
+                opacity: { duration: 0.2 }
             }}
         />
     );

@@ -25,6 +25,9 @@ export const metadata: Metadata = {
 
 import { CustomCursor } from "@/components/ui/CustomCursor";
 import { NavBar } from "@/components/layout/NavBar";
+import { ExperienceProvider } from "@/context/ExperienceContext";
+import { SmoothScroll } from "@/components/ui/SmoothScroll";
+import { SoundManager } from "@/components/ui/SoundManager";
 
 export default function RootLayout({
   children,
@@ -37,9 +40,13 @@ export default function RootLayout({
         suppressHydrationWarning
         className={`${inter.variable} ${poppins.variable} ${jetbrainsMono.variable} font-sans antialiased`}
       >
-        <CustomCursor />
-        <NavBar />
-        {children}
+        <ExperienceProvider>
+          <SmoothScroll />
+          <SoundManager />
+          <CustomCursor />
+          <NavBar />
+          {children}
+        </ExperienceProvider>
       </body>
     </html>
   );
