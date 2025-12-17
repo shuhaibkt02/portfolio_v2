@@ -44,7 +44,7 @@ export const CustomCursor = () => {
 
     return (
         <motion.div
-            className="pointer-events-none fixed left-0 top-0 z-50 h-8 w-8 rounded-full border border-flutter-blue mix-blend-difference"
+            className="pointer-events-none fixed left-0 top-0 z-50 h-8 w-8 rounded-full border border-flutter-blue mix-blend-difference hidden md:block"
             style={{
                 translateX: cursorXSpring,
                 translateY: cursorYSpring,

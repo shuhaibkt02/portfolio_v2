@@ -3,40 +3,10 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Download } from "lucide-react";
 import { ParticleBackground } from "./ParticleBackground";
-import { useEffect, useState } from "react";
 
-const TYPING_STRINGS = [
-    "Mobile App Developer",
-    "Flutter & Kotlin Specialist",
-    "Enterprise Field Sales Systems Engineer",
-];
+
 
 export const HeroSection = () => {
-    const [textIndex, setTextIndex] = useState(0);
-    const [charIndex, setCharIndex] = useState(0);
-    const [isDeleting, setIsDeleting] = useState(false);
-
-    useEffect(() => {
-        const currentString = TYPING_STRINGS[textIndex];
-        const typingSpeed = isDeleting ? 50 : 100;
-        const pauseTime = 2000;
-
-        const timeout = setTimeout(() => {
-            if (!isDeleting && charIndex < currentString.length) {
-                setCharIndex((prev) => prev + 1);
-            } else if (isDeleting && charIndex > 0) {
-                setCharIndex((prev) => prev - 1);
-            } else if (!isDeleting && charIndex === currentString.length) {
-                setTimeout(() => setIsDeleting(true), pauseTime);
-            } else if (isDeleting && charIndex === 0) {
-                setIsDeleting(false);
-                setTextIndex((prev) => (prev + 1) % TYPING_STRINGS.length);
-            }
-        }, typingSpeed);
-
-        return () => clearTimeout(timeout);
-    }, [charIndex, isDeleting, textIndex]);
-
     return (
         <section className="relative flex h-screen w-full items-center justify-center overflow-hidden bg-background">
             <ParticleBackground />
@@ -67,10 +37,8 @@ export const HeroSection = () => {
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.8, delay: 0.4 }}
                 >
-                    <span>I build&nbsp;</span>
                     <span className="font-mono text-foreground break-words">
-                        {TYPING_STRINGS[textIndex].substring(0, charIndex)}
-                        <span className="animate-pulse text-flutter-blue inline-block">|</span>
+                        Mobile App Developer
                     </span>
                 </motion.div>
 
@@ -93,7 +61,7 @@ export const HeroSection = () => {
                         className="group flex items-center justify-center gap-2 rounded-full border border-zinc-700 bg-transparent px-8 py-3 text-lg font-medium text-zinc-300 transition-all hover:border-zinc-500 hover:text-white"
                     >
                         <Download size={20} />
-                        <span>Download CV</span>
+                        <span>Download Resume</span>
                     </a>
                 </motion.div>
             </div>
