@@ -5,40 +5,40 @@ import { useState } from "react";
 
 // Simple node data structure for the tree
 const skills = [
-    { id: "core", x: 50, y: 50, label: "Core", level: "Expert" },
+    { id: "core", x: 50, y: 45, label: "Core", level: "Expert" },
 
     // Categories
-    { id: "mobile", x: 20, y: 50, label: "Mobile", parent: "core" },
-    { id: "web", x: 80, y: 50, label: "Web", parent: "core" },
-    { id: "backend", x: 35, y: 80, label: "Backend", parent: "core" },
-    { id: "arch", x: 65, y: 80, label: "Arch", parent: "core" },
-    { id: "tools", x: 50, y: 20, label: "Tools", parent: "core" },
+    { id: "mobile", x: 15, y: 45, label: "Mobile", parent: "core" },
+    { id: "web", x: 85, y: 45, label: "Web", parent: "core" },
+    { id: "backend", x: 35, y: 70, label: "Backend", parent: "core" },
+    { id: "arch", x: 65, y: 70, label: "Arch", parent: "core" },
+    { id: "tools", x: 50, y: 15, label: "Tools", parent: "core" },
 
     // Mobile
-    { id: "flutter", x: 10, y: 40, label: "Flutter", parent: "mobile" },
-    { id: "kotlin", x: 10, y: 60, label: "Kotlin", parent: "mobile" },
+    { id: "flutter", x: 5, y: 35, label: "Flutter", parent: "mobile" },
+    { id: "kotlin", x: 5, y: 55, label: "Kotlin", parent: "mobile" },
 
     // Web
-    { id: "react", x: 90, y: 40, label: "React", parent: "web" },
-    { id: "nextjs", x: 90, y: 60, label: "Next.js", parent: "web" },
-    { id: "js", x: 80, y: 35, label: "JS", parent: "web" },
+    { id: "react", x: 95, y: 35, label: "React", parent: "web" },
+    { id: "nextjs", x: 95, y: 55, label: "Next.js", parent: "web" },
+    { id: "js", x: 85, y: 25, label: "JS", parent: "web" },
 
     // Backend
-    { id: "node", x: 25, y: 90, label: "Node.js", parent: "backend" },
+    { id: "node", x: 25, y: 85, label: "Node.js", parent: "backend" },
     { id: "firebase", x: 35, y: 95, label: "Firebase", parent: "backend" },
-    { id: "python", x: 45, y: 90, label: "Python", parent: "backend" },
+    { id: "python", x: 45, y: 85, label: "Python", parent: "backend" },
 
     // Architecture
-    { id: "bloc", x: 55, y: 90, label: "BLoC", parent: "arch" },
+    { id: "bloc", x: 55, y: 85, label: "BLoC", parent: "arch" },
     { id: "riverpod", x: 65, y: 95, label: "Riverpod", parent: "arch" },
-    { id: "clean", x: 75, y: 90, label: "Clean Arch", parent: "arch" },
-    { id: "xmind", x: 70, y: 70, label: "XMind", parent: "arch" },
+    { id: "clean", x: 75, y: 85, label: "Clean Arch", parent: "arch" },
+    { id: "xmind", x: 70, y: 55, label: "XMind", parent: "arch" },
 
     // Tools
-    { id: "docker", x: 40, y: 10, label: "Docker", parent: "tools" },
-    { id: "postman", x: 60, y: 10, label: "Postman", parent: "tools" },
-    { id: "vscode", x: 50, y: 5, label: "VS Code", parent: "tools" },
-    { id: "figma", x: 50, y: 35, label: "Figma", parent: "tools" },
+    { id: "docker", x: 35, y: 5, label: "Docker", parent: "tools" },
+    { id: "postman", x: 65, y: 5, label: "Postman", parent: "tools" },
+    { id: "vscode", x: 50, y: 0, label: "VS Code", parent: "tools" },
+    { id: "figma", x: 50, y: 30, label: "Figma", parent: "tools" },
 ];
 
 export const SkillTree = () => {
@@ -50,7 +50,7 @@ export const SkillTree = () => {
             <div className="mx-auto max-w-7xl px-6 sm:px-12 text-center relative z-10">
                 <h2 className="mb-12 text-3xl font-bold font-heading sm:text-4xl text-white">Skills Lab</h2>
 
-                <div className="relative min-h-[600px] w-full md:aspect-square max-w-2xl mx-auto rounded-3xl bg-zinc-900 border border-zinc-800 shadow-2xl p-8">
+                <div className="relative min-h-[800px] w-full max-w-4xl mx-auto md:aspect-square rounded-3xl bg-zinc-900 border border-zinc-800 shadow-2xl p-8">
                     {/* SVG Connections */}
                     <svg className="absolute inset-0 h-full w-full pointer-events-none">
                         {skills.map((skill) => {
