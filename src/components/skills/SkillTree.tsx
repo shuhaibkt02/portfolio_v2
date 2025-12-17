@@ -6,18 +6,18 @@ import { useState } from "react";
 // Simple node data structure for the tree
 const skills = [
     { id: "core", x: 50, y: 55, label: "Core", level: "Expert" },
-    { id: "mobile", x: 30, y: 35, label: "Mobile", parent: "core" },
-    { id: "web", x: 70, y: 35, label: "Web", parent: "core" },
-    { id: "backend", x: 50, y: 80, label: "Backend", parent: "core" },
+    { id: "mobile", x: 30, y: 38, label: "Mobile", parent: "core" },
+    { id: "web", x: 70, y: 38, label: "Web", parent: "core" },
+    { id: "backend", x: 50, y: 72, label: "Backend", parent: "core" },
 
-    { id: "flutter", x: 15, y: 15, label: "Flutter", parent: "mobile" },
-    { id: "kotlin", x: 40, y: 15, label: "Kotlin", parent: "mobile" },
+    { id: "flutter", x: 20, y: 20, label: "Flutter", parent: "mobile" },
+    { id: "kotlin", x: 40, y: 20, label: "Kotlin", parent: "mobile" },
 
-    { id: "react", x: 60, y: 15, label: "React", parent: "web" },
-    { id: "nextjs", x: 85, y: 15, label: "Next.js", parent: "web" },
+    { id: "react", x: 60, y: 20, label: "React", parent: "web" },
+    { id: "nextjs", x: 80, y: 20, label: "Next.js", parent: "web" },
 
-    { id: "node", x: 35, y: 95, label: "Node.js", parent: "backend" },
-    { id: "firebase", x: 65, y: 95, label: "Firebase", parent: "backend" },
+    { id: "node", x: 40, y: 87, label: "Node.js", parent: "backend" },
+    { id: "firebase", x: 60, y: 87, label: "Firebase", parent: "backend" },
 ];
 
 export const SkillTree = () => {
@@ -29,7 +29,7 @@ export const SkillTree = () => {
             <div className="mx-auto max-w-7xl px-6 sm:px-12 text-center relative z-10">
                 <h2 className="mb-12 text-3xl font-bold font-heading sm:text-4xl text-white">Skills Lab</h2>
 
-                <div className="relative aspect-square w-full max-w-2xl mx-auto rounded-3xl bg-zinc-900 border border-zinc-800 shadow-2xl p-8">
+                <div className="relative min-h-[600px] w-full md:aspect-square max-w-2xl mx-auto rounded-3xl bg-zinc-900 border border-zinc-800 shadow-2xl p-8">
                     {/* SVG Connections */}
                     <svg className="absolute inset-0 h-full w-full pointer-events-none">
                         {skills.map((skill) => {
