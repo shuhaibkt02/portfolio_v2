@@ -4,18 +4,29 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 
 const allSkills = [
-    { name: "Flutter", category: "Frameworks", level: 95 },
-    { name: "Dart", category: "Languages", level: 90 },
-    { name: "Kotlin", category: "Languages", level: 85 },
-    { name: "React", category: "Frameworks", level: 80 },
-    { name: "Next.js", category: "Frameworks", level: 75 },
-    { name: "Firebase", category: "Tools", level: 90 },
-    { name: "Git", category: "Tools", level: 85 },
-    { name: "Figma", category: "Tools", level: 70 },
-    { name: "Node.js", category: "Backend", level: 60 },
+    { name: "Flutter", category: "Frameworks", level: 98 },
+    { name: "Dart", category: "Languages", level: 95 },
+    { name: "Kotlin", category: "Languages", level: 90 },
+    { name: "TypeScript", category: "Languages", level: 85 },
+    { name: "Next.js", category: "Frameworks", level: 80 },
+    { name: "BLoC", category: "Architecture", level: 95 },
+    { name: "Riverpod", category: "Architecture", level: 95 },
+    { name: "Clean Arch", category: "Architecture", level: 90 },
+    { name: "Firebase", category: "Backend", level: 90 },
+    { name: "Supabase", category: "Backend", level: 85 },
+    { name: "Node.js", category: "Backend", level: 75 },
+    { name: "PostgreSQL", category: "Backend", level: 75 },
+    { name: "Hive", category: "Tools", level: 90 },
+    { name: "Figma", category: "Tools", level: 75 },
+    { name: "Python", category: "Languages", level: 80 },
+    { name: "JavaScript", category: "Languages", level: 85 },
+    { name: "XMind", category: "Tools", level: 85 },
+    { name: "Postman", category: "Tools", level: 90 },
+    { name: "Docker", category: "Tools", level: 80 },
+    { name: "VS Code", category: "Tools", level: 95 },
 ];
 
-const categories = ["All", "Languages", "Frameworks", "Tools", "Backend"];
+const categories = ["All", "Languages", "Frameworks", "Architecture", "Backend", "Tools"];
 
 export const TechGrid = () => {
     const [filter, setFilter] = useState("All");
@@ -33,8 +44,8 @@ export const TechGrid = () => {
                             key={cat}
                             onClick={() => setFilter(cat)}
                             className={`rounded-full px-6 py-2 text-sm font-medium transition-all ${filter === cat
-                                    ? "bg-flutter-blue text-white"
-                                    : "bg-zinc-900 text-zinc-400 hover:bg-zinc-800"
+                                ? "bg-flutter-blue text-white"
+                                : "bg-zinc-900 text-zinc-400 hover:bg-zinc-800"
                                 }`}
                         >
                             {cat}

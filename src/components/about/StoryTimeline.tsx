@@ -3,12 +3,33 @@
 import { motion } from "framer-motion";
 
 const milestones = [
-    { year: "Pre-2019", title: "Cybersecurity Foundations", desc: "Built foundational knowledge in networking, system security, and defensive cybersecurity concepts before formal degree studies." },
-    { year: "2019 – 2022", title: "BCA (Distance)", desc: "Completed BCA through distance education, focusing on academic foundations while independently exploring technology." },
-    { year: "2023 – 2025", title: "Career Break & Skill Building", desc: "Took a planned career break to deepen technical skills, explore blockchain, and understand market dynamics." },
-    { year: "2025 – Present", title: "Mobile App Developer", desc: "Working at SpiralCode Innovates LLP on enterprise-grade Flutter applications and offline-first systems." },
-    { year: "Present", title: "Continuous Growth", desc: "Actively expanding full-stack capabilities with Next.js, TypeScript, and scalable system architecture patterns." },
+    {
+        year: "Pre-2019",
+        title: "Cybersecurity Foundations",
+        desc: "Built foundational knowledge in networking, system security, and defensive cybersecurity concepts before formal degree studies."
+    },
+    {
+        year: "2019 – 2022",
+        title: "Bachelor of Computer Applications",
+        desc: "Completed BCA while building technical foundations and exploring software development independently."
+    },
+    {
+        year: "2022 – 2023",
+        title: "Junior Android Developer",
+        desc: "Joined Nizzcorp and worked on employee and sales management systems using Flutter, React, Node.js, and PostgreSQL."
+    },
+    {
+        year: "2023 – 2025",
+        title: "Career Break & Skill Building",
+        desc: "Took a planned break to strengthen technical depth, explore blockchain concepts, understand stock market dynamics, and refine long-term career direction."
+    },
+    {
+        year: "2025 – Present",
+        title: "Mobile App Developer",
+        desc: "Working at SpiralCode Innovates LLP on enterprise-grade Flutter applications, offline-first systems, and high-precision location tracking."
+    }
 ];
+
 
 export const StoryTimeline = () => {
     return (
@@ -22,7 +43,7 @@ export const StoryTimeline = () => {
                     {/* Progress Line */}
                     <div className="absolute left-4 top-0 h-full w-0.5 bg-zinc-800 md:left-0 md:top-8 md:h-0.5 md:w-full" />
 
-                    <div className="flex flex-col gap-8 pb-12 pt-4 md:flex-row md:overflow-x-auto md:scrollbar-hide">
+                    <div className="flex flex-col gap-8 pb-12 pt-4 md:flex-row md:overflow-x-auto">
                         {milestones.map((milestone, index) => (
                             <motion.div
                                 key={index}

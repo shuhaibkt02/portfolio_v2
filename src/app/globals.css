@@ -3,7 +3,7 @@
 :root {
   /* Design System Colors */
   --flutter-blue: #0468D7;
-  
+
   /* Text & Backgrounds */
   --background: #ffffff;
   --foreground: #171717;
@@ -30,4 +30,32 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #09090b;
+  /* zinc-950 */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  /* zinc-800 */
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+  /* zinc-700 */
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #27272a #09090b;
 }

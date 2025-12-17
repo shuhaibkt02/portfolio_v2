@@ -8,29 +8,37 @@ const skills = [
     { id: "core", x: 50, y: 50, label: "Core", level: "Expert" },
 
     // Categories
-    { id: "mobile", x: 25, y: 30, label: "Mobile Dev", parent: "core" },
-    { id: "web", x: 75, y: 30, label: "Web Dev", parent: "core" },
-    { id: "backend", x: 25, y: 70, label: "Backend", parent: "core" },
-    { id: "arch", x: 75, y: 70, label: "Architecture", parent: "core" },
+    { id: "mobile", x: 20, y: 50, label: "Mobile", parent: "core" },
+    { id: "web", x: 80, y: 50, label: "Web", parent: "core" },
+    { id: "backend", x: 35, y: 80, label: "Backend", parent: "core" },
+    { id: "arch", x: 65, y: 80, label: "Arch", parent: "core" },
+    { id: "tools", x: 50, y: 20, label: "Tools", parent: "core" },
 
     // Mobile
-    { id: "flutter", x: 10, y: 20, label: "Flutter", parent: "mobile" },
-    { id: "kotlin", x: 25, y: 15, label: "Kotlin", parent: "mobile" },
-    { id: "jetpack", x: 40, y: 20, label: "Jetpack", parent: "mobile" },
+    { id: "flutter", x: 10, y: 40, label: "Flutter", parent: "mobile" },
+    { id: "kotlin", x: 10, y: 60, label: "Kotlin", parent: "mobile" },
 
     // Web
-    { id: "react", x: 60, y: 20, label: "React", parent: "web" },
-    { id: "nextjs", x: 90, y: 20, label: "Next.js", parent: "web" },
+    { id: "react", x: 90, y: 40, label: "React", parent: "web" },
+    { id: "nextjs", x: 90, y: 60, label: "Next.js", parent: "web" },
+    { id: "js", x: 80, y: 35, label: "JS", parent: "web" },
 
     // Backend
-    { id: "node", x: 10, y: 80, label: "Node.js", parent: "backend" },
-    { id: "firebase", x: 25, y: 85, label: "Firebase", parent: "backend" },
-    { id: "postgres", x: 40, y: 80, label: "Postgres", parent: "backend" },
+    { id: "node", x: 25, y: 90, label: "Node.js", parent: "backend" },
+    { id: "firebase", x: 35, y: 95, label: "Firebase", parent: "backend" },
+    { id: "python", x: 45, y: 90, label: "Python", parent: "backend" },
 
     // Architecture
-    { id: "bloc", x: 60, y: 80, label: "BLoC", parent: "arch" },
-    { id: "riverpod", x: 75, y: 85, label: "Riverpod", parent: "arch" },
-    { id: "clean", x: 90, y: 80, label: "Clean Arch", parent: "arch" },
+    { id: "bloc", x: 55, y: 90, label: "BLoC", parent: "arch" },
+    { id: "riverpod", x: 65, y: 95, label: "Riverpod", parent: "arch" },
+    { id: "clean", x: 75, y: 90, label: "Clean Arch", parent: "arch" },
+    { id: "xmind", x: 70, y: 70, label: "XMind", parent: "arch" },
+
+    // Tools
+    { id: "docker", x: 40, y: 10, label: "Docker", parent: "tools" },
+    { id: "postman", x: 60, y: 10, label: "Postman", parent: "tools" },
+    { id: "vscode", x: 50, y: 5, label: "VS Code", parent: "tools" },
+    { id: "figma", x: 50, y: 35, label: "Figma", parent: "tools" },
 ];
 
 export const SkillTree = () => {
