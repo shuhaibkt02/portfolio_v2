@@ -51,7 +51,7 @@ export const CustomCursor = () => {
             }}
             animate={{
                 scale: isHovered ? 2.5 : 1,
-                backgroundColor: isHovered ? "var(--flutter-blue)" : "transparent",
+                backgroundColor: isHovered ? "#ffffff" : "transparent",
                 opacity: 1,
             }}
             initial={{ opacity: 0 }}

@@ -5,40 +5,42 @@ import { useState } from "react";
 
 // Simple node data structure for the tree
 const skills = [
-    { id: "core", x: 50, y: 45, label: "Core", level: "Expert" },
+    { id: "core", x: 50, y: 50, label: "Core", level: "Expert" },
 
     // Categories
-    { id: "mobile", x: 15, y: 45, label: "Mobile", parent: "core" },
-    { id: "web", x: 85, y: 45, label: "Web", parent: "core" },
-    { id: "backend", x: 35, y: 70, label: "Backend", parent: "core" },
-    { id: "arch", x: 65, y: 70, label: "Arch", parent: "core" },
-    { id: "tools", x: 50, y: 15, label: "Tools", parent: "core" },
+    { id: "mobile", x: 20, y: 50, label: "Mobile", parent: "core" },
+    { id: "web", x: 80, y: 50, label: "Web", parent: "core" },
+    { id: "backend", x: 35, y: 80, label: "Backend", parent: "core" },
+    { id: "arch", x: 65, y: 80, label: "Arch", parent: "core" },
+    { id: "soft", x: 50, y: 20, label: "Soft Skills", parent: "core" },
 
     // Mobile
-    { id: "flutter", x: 5, y: 35, label: "Flutter", parent: "mobile" },
-    { id: "kotlin", x: 5, y: 55, label: "Kotlin", parent: "mobile" },
+    { id: "flutter", x: 10, y: 40, label: "Flutter", parent: "mobile" },
+    { id: "kotlin", x: 10, y: 60, label: "Kotlin", parent: "mobile" },
 
     // Web
-    { id: "react", x: 95, y: 35, label: "React", parent: "web" },
-    { id: "nextjs", x: 95, y: 55, label: "Next.js", parent: "web" },
-    { id: "js", x: 85, y: 25, label: "JS", parent: "web" },
+    { id: "react", x: 90, y: 40, label: "React", parent: "web" },
+    { id: "nextjs", x: 90, y: 60, label: "Next.js", parent: "web" },
 
-    // Backend
-    { id: "node", x: 25, y: 85, label: "Node.js", parent: "backend" },
+    // Backend (Merged Docker here as a critical infra skill)
+    { id: "node", x: 25, y: 90, label: "Node.js", parent: "backend" },
     { id: "firebase", x: 35, y: 95, label: "Firebase", parent: "backend" },
-    { id: "python", x: 45, y: 85, label: "Python", parent: "backend" },
+    { id: "docker", x: 45, y: 90, label: "Docker", parent: "backend" },
 
     // Architecture
-    { id: "bloc", x: 55, y: 85, label: "BLoC", parent: "arch" },
-    { id: "riverpod", x: 65, y: 95, label: "Riverpod", parent: "arch" },
-    { id: "clean", x: 75, y: 85, label: "Clean Arch", parent: "arch" },
-    { id: "xmind", x: 70, y: 55, label: "XMind", parent: "arch" },
+    { id: "bloc", x: 60, y: 90, label: "BLoC", parent: "arch" },
+    { id: "clean", x: 75, y: 90, label: "Clean Arch", parent: "arch" },
+    { id: "riverpod", x: 67, y: 95, label: "Riverpod", parent: "arch" },
 
-    // Tools
-    { id: "docker", x: 35, y: 5, label: "Docker", parent: "tools" },
-    { id: "postman", x: 65, y: 5, label: "Postman", parent: "tools" },
-    { id: "vscode", x: 50, y: 0, label: "VS Code", parent: "tools" },
-    { id: "figma", x: 50, y: 30, label: "Figma", parent: "tools" },
+    // Soft Skills
+    { id: "lead", x: 35, y: 10, label: "Leadership", parent: "soft" },
+    { id: "problem", x: 45, y: 5, label: "Problem Solving", parent: "soft" },
+    { id: "comms", x: 55, y: 5, label: "Communication", parent: "soft" },
+    { id: "adapt", x: 65, y: 10, label: "Adaptability", parent: "soft" },
+
+    // Design (Attached to Web for simplicity or separate? Let's keep it separate but minimal)
+    // Connecting Figma to Soft Skills might be weird. Let's connect to Web for "UI Engineering" context
+    { id: "figma", x: 80, y: 25, label: "Figma", parent: "web" },
 ];
 
 export const SkillTree = () => {
