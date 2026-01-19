@@ -17,7 +17,7 @@ export const CaseStudiesHub = () => {
                         </p>
                     </div>
                     <a
-                        href="/work"
+                        href="/"
                         className="group flex items-center gap-2 text-base font-medium text-flutter-blue hover:text-white transition-colors"
                     >
                         View All Projects
