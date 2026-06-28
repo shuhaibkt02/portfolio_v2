@@ -32,15 +32,24 @@ export const HeroSection = () => {
                 </motion.h1>
 
                 <motion.div
-                    className="mt-6 min-h-[3rem] h-auto text-center text-xl font-light text-zinc-400 sm:text-3xl md:text-4xl"
+                    className="mt-6 h-auto text-center text-2xl font-semibold text-zinc-300 sm:text-3xl md:text-4xl"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.8, delay: 0.4 }}
                 >
-                    <span className="font-mono text-foreground break-words">
-                        Mobile App Developer
+                    <span className="font-mono text-white break-words">
+                        Mobile Engineer
                     </span>
                 </motion.div>
+
+                <motion.p
+                    className="mt-4 max-w-xl text-base text-zinc-400 sm:text-lg md:text-xl font-light leading-relaxed"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.8, delay: 0.5 }}
+                >
+                    Building high-performance mobile applications with Flutter, Kotlin, and offline-first architecture.
+                </motion.p>
 
                 <motion.div
                     className="mt-10 flex flex-col gap-4 sm:flex-row"

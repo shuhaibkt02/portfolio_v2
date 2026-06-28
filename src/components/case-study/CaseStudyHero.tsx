@@ -35,6 +35,11 @@ export const CaseStudyHero = ({ study }: CaseStudyHeroProps) => {
                         <span className="rounded-full bg-white/10 px-4 py-1.5 text-sm font-medium text-white backdrop-blur-md">
                             {study.category}
                         </span>
+                        {study.isInternal && (
+                            <span className="rounded-full bg-amber-500/10 px-4 py-1.5 text-sm font-medium text-amber-400 backdrop-blur-md border border-amber-500/20">
+                                Internal Enterprise App
+                            </span>
+                        )}
                         <span className="text-zinc-400">{study.date || "Feb 2025 - Present"}</span>
                     </div>
 
@@ -74,6 +79,16 @@ export const CaseStudyHero = ({ study }: CaseStudyHeroProps) => {
                                 <ArrowLeft className="h-5 w-5 rotate-135" />
                                 Visit Website
                             </a>
+                        </div>
+                    )}
+
+                    {!study.playStoreUrl && !study.webUrl && study.isInternal && (
+                        <div className="mt-8 text-zinc-400 text-sm font-mono flex items-center gap-2 bg-zinc-950/40 p-4 rounded-xl border border-zinc-800/80 w-fit backdrop-blur-md">
+                            <span className="relative flex h-2 w-2">
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+                            </span>
+                            Proprietary internal system — deployment restricted to closed network.
                         </div>
                     )}
                 </motion.div>

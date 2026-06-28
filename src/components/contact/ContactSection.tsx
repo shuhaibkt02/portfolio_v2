@@ -57,7 +57,7 @@ export const ContactSection = () => {
                                     </a>
                                     <a href="https://www.linkedin.com/in/shuhaibkt/" target="_blank" className="flex items-center gap-3 text-zinc-300 hover:text-white group">
                                         <Linkedin size={24} className="group-hover:text-flutter-blue transition-colors" />
-                                        <span>linkedin.com/in/shuhaib</span>
+                                        <span>linkedin.com/in/shuhaibkt</span>
                                         <ArrowRight size={16} className="opacity-0 -translate-x-2 transition-all group-hover:opacity-100 group-hover:translate-x-0" />
                                     </a>
                                 </div>

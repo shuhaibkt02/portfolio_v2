@@ -20,13 +20,23 @@ const milestones = [
     },
     {
         year: "2023 – 2025",
-        title: "Career Break & Skill Building",
-        desc: "Took a planned break to strengthen technical depth, explore blockchain concepts, understand stock market dynamics, and refine long-term career direction."
+        title: "Independent Engineering & Technical Research",
+        desc: "Built production-grade Flutter architectures, native Android plugins, offline synchronization systems, trading automation tools, and explored blockchain infrastructure while preparing for enterprise mobile development."
     },
     {
-        year: "2025 – Present",
-        title: "Mobile App Developer",
-        desc: "Working at SpiralCode Innovates LLP on enterprise-grade Flutter applications, offline-first systems, and high-precision location tracking."
+        year: "2025 – 2026",
+        title: "Flutter Developer",
+        desc: "Worked at SpiralCode Innovates LLP on enterprise-grade Flutter applications, offline-first systems, and high-precision location tracking."
+    },
+    {
+        year: "2026",
+        title: "Full-Stack Freelance Engineer",
+        desc: "Built a custom e-commerce web platform (CakeNook) using Next.js, React, Tailwind, and Razorpay payment integration with geocoded delivery bounds."
+    },
+    {
+        year: "Present",
+        title: "Open to Opportunities",
+        desc: "Seeking senior mobile developer or cross-platform engineering roles in high-performance product teams."
     }
 ];
 

@@ -4,10 +4,10 @@ import { motion, useInView, useSpring, useMotionValue } from "framer-motion";
 import { useEffect, useRef } from "react";
 
 const stats = [
-    { label: "Years Experience", value: 2, suffix: "+" },
-    { label: "Crash Reduction", value: 60, suffix: "%" },
-    { label: "Weekly Transactions", value: 5, suffix: "K+" },
-    { label: "GPS Accuracy", value: 30, suffix: "%" },
+    { label: "Experience", value: 2, suffix: "+", sublabel: "Enterprise Mobile Dev" },
+    { label: "Crash Reduction", value: 60, suffix: "%", sublabel: "WAVES 2 ERP Application" },
+    { label: "Weekly Transactions", value: 5, suffix: "K+", sublabel: "Enterprise Sales Platform" },
+    { label: "GPS Accuracy", value: 30, suffix: "%", sublabel: "Ozone Activity Tracker" },
 ];
 
 const Counter = ({ value, suffix }: { value: number; suffix: string }) => {
@@ -51,9 +51,14 @@ export const QuickStats = () => {
                             className="flex flex-col items-center text-center"
                         >
                             <Counter value={stat.value} suffix={stat.suffix} />
-                            <p className="mt-2 text-sm font-medium text-zinc-400 sm:text-base">
+                            <p className="mt-2 text-sm font-bold text-white sm:text-base">
                                 {stat.label}
                             </p>
+                            {stat.sublabel && (
+                                <p className="mt-1 text-xs text-zinc-400">
+                                    {stat.sublabel}
+                                </p>
+                            )}
                         </motion.div>
                     ))}
                 </div>
