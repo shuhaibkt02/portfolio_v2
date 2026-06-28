@@ -1,8 +1,7 @@
 import { HeroSection } from "@/components/home/HeroSection";
 import { QuickStats } from "@/components/home/QuickStats";
 import { CaseStudiesHub } from "@/components/work/CaseStudiesHub";
-import { SkillTree } from "@/components/skills/SkillTree";
-import { TechGrid } from "@/components/skills/TechGrid";
+import { EngineeringExpertise } from "@/components/skills/EngineeringExpertise";
 import { StoryTimeline } from "@/components/about/StoryTimeline";
 import { ContactSection } from "@/components/contact/ContactSection";
 
@@ -12,8 +11,7 @@ export default function Home() {
       <HeroSection />
       <QuickStats />
       <CaseStudiesHub />
-      <SkillTree />
-      <TechGrid />
+      <EngineeringExpertise />
       <StoryTimeline />
       <ContactSection />
     </main>
