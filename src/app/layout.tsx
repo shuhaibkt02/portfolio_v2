@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Inter, Poppins, JetBrains_Mono } from "next/font/google";
-import "./globals.css";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -38,6 +37,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <meta name="google-site-verification" content="Zc3ejKNoBLBInSD2IW-MZzyO3AV6mZsjyF73sZEfZro" />
       <body
         suppressHydrationWarning
         className={`${inter.variable} ${poppins.variable} ${jetbrainsMono.variable} font-sans antialiased`}
