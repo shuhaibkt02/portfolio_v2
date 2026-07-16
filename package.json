@@ -32,7 +32,7 @@
     "typescript": "^5"
   },
   "pnpm": {
-    "allowedBuilds": [
+    "onlyBuiltDependencies": [
       "sharp",
       "unrs-resolver"
     ]
