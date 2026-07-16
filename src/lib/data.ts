@@ -134,7 +134,7 @@ export const caseStudies: CaseStudy[] = [
         techStack: ["Flutter", "Riverpod", "Kotlin Plugin", "Hive", "PDF Gen"],
         metrics: ["Zero-Latency Offline Sales", "Direct Bluetooth Printing", "Automated Inventory Reports"],
         color: "#0468D7",
-        date: "Feb 2025 - Apr 2026",
+        date: "Feb 2025 - Dec 2025",
         company: "SpiralCode Innovates LLP",
         isInternal: true,
         engineeringChallenges: [
@@ -204,7 +204,7 @@ export const caseStudies: CaseStudy[] = [
         metrics: ["Reduced production crashes by 60%", "Forced Geofence Checkout", "Automated Mileage Tracking"],
         color: "#0288D1",
         company: "SpiralCode Innovates LLP",
-        date: "Feb 2025 - Apr 2026",
+        date: "Feb 2025 - Dec 2025",
         playStoreUrl: "https://play.google.com/store/apps/details?id=com.spiralcode.waves2",
         isInternal: true,
         architectureDiagramId: "waves-2",
@@ -276,7 +276,7 @@ export const caseStudies: CaseStudy[] = [
         metrics: ["Salary-Grade GPS Accuracy", "Anti-Tamper Performance Audit", "Dual Perspective Dashboard"],
         color: "#7B1FA2",
         company: "SpiralCode Innovates LLP",
-        date: "Feb 2025 - Apr 2026",
+        date: "Feb 2025 - Dec 2025",
         isInternal: true,
         architectureDiagramId: "location-plugin",
         engineeringChallenges: [

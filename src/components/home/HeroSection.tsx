@@ -38,7 +38,7 @@ export const HeroSection = () => {
                     transition={{ duration: 0.8, delay: 0.4 }}
                 >
                     <span className="font-mono text-white break-words">
-                        Mobile Engineer
+                        Software Engineer
                     </span>
                 </motion.div>
 
@@ -48,7 +48,7 @@ export const HeroSection = () => {
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.8, delay: 0.5 }}
                 >
-                    Building high-performance mobile applications with Flutter, Kotlin, and offline-first architecture.
+                    Developing cross-platform mobile and web applications, specializing in Flutter, React.js, Next.js, Kotlin, and TypeScript.
                 </motion.p>
 
                 <motion.div
@@ -66,7 +66,7 @@ export const HeroSection = () => {
                     </a>
 
                     <a
-                        href="/SHUHAIB_KT.pdf"
+                        href="/SHUHAIB-KT.pdf"
                         className="group flex items-center justify-center gap-2 rounded-full border border-zinc-700 bg-transparent px-8 py-3 text-lg font-medium text-zinc-300 transition-all hover:border-zinc-500 hover:text-white"
                     >
                         <Download size={20} />

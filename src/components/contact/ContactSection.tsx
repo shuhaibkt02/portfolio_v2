@@ -36,7 +36,7 @@ export const ContactSection = () => {
                                     Say Hello
                                 </a>
                                 <a
-                                    href="/SHUHAIB_KT.pdf"
+                                    href="/SHUHAIB-KT.pdf"
                                     className="flex items-center justify-center gap-2 rounded-full border border-zinc-700 bg-transparent px-6 py-3 font-medium text-white transition-colors hover:bg-white/5"
                                 >
                                     <Download size={20} />

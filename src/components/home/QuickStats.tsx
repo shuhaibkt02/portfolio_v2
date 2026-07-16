@@ -4,10 +4,10 @@ import { motion, useInView, useSpring, useMotionValue } from "framer-motion";
 import { useEffect, useRef } from "react";
 
 const stats = [
-    { label: "Experience", value: 2, suffix: "+", sublabel: "Enterprise Mobile Dev" },
-    { label: "Crash Reduction", value: 60, suffix: "%", sublabel: "WAVES 2 ERP Application" },
-    { label: "Weekly Transactions", value: 5, suffix: "K+", sublabel: "Enterprise Sales Platform" },
-    { label: "GPS Accuracy", value: 30, suffix: "%", sublabel: "Ozone Activity Tracker" },
+    { label: "Experience", value: 3, suffix: "+", sublabel: "Software Engineering" },
+    { label: "Production Apps", value: 8, suffix: "+", sublabel: "Delivered for Clients" },
+    { label: "Crash Reduction", value: 70, suffix: "%", sublabel: "WAVES 2 ERP Application" },
+    { label: "GPS Accuracy", value: 70, suffix: "%", sublabel: "Ozone Activity Tracker" },
 ];
 
 const Counter = ({ value, suffix }: { value: number; suffix: string }) => {
