@@ -1,116 +1,81 @@
 "use client";
 
-import { useRef, useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, CheckCircle2, Briefcase, Calendar } from "lucide-react";
 import Link from "next/link";
 
-// ─── Data ─────────────────────────────────────────────────────────────────────
-
-interface Milestone {
-    year: string;
-    title: string;
-    desc: string;
-    tagLabel?: string;
+interface ExperienceCompany {
+    company: string;
+    role: string;
+    period: string;
+    description: string;
+    highlights: string[];
+    technologies: string[];
     tagHref?: string;
+    tagLabel?: string;
 }
 
-const milestones: Milestone[] = [
+const experiences: ExperienceCompany[] = [
     {
-        year: "Pre-2019",
-        title: "Cybersecurity Foundations",
-        desc: "Built foundational knowledge in networking, system security, and defensive cybersecurity concepts before formal degree studies.",
+        company: "SpiralCode Innovates LLP",
+        role: "Flutter Developer",
+        period: "Feb 2025 – Dec 2025",
+        description: "Worked on multiple enterprise Flutter applications across ERP and logistics domains.",
+        highlights: [
+            "Delivered six production Flutter applications.",
+            "Implemented Clean Architecture using BLoC and Riverpod.",
+            "Built offline-first applications using Hive and background synchronization.",
+            "Developed native Android integrations using Kotlin and MethodChannel.",
+            "Integrated Firebase, Google Maps Platform, REST APIs, Ola Maps and Sentry.",
+            "Automated build pipelines using GitHub Actions and Fastlane."
+        ],
+        technologies: [
+            "Flutter", "Dart", "Kotlin", "Firebase", "Hive",
+            "Google Maps Platform", "GitHub Actions", "Fastlane"
+        ],
+        tagLabel: "WAVES 2 Project",
+        tagHref: "/work/waves-2"
     },
     {
-        year: "2019 – 2022",
-        title: "Bachelor of Computer Applications",
-        desc: "Completed BCA at Jaipur National University while building technical foundations and exploring software development independently.",
+        company: "Cake Nook",
+        role: "Frontend Developer",
+        period: "Freelance Contract",
+        description: "Built a multi-vendor hyperlocal marketplace using Next.js and React.js.",
+        highlights: [
+            "Complete shopping experience with custom checkout workflows",
+            "Razorpay payment gateway integration",
+            "Geo-boundary delivery validation using Google Maps Platform",
+            "Core Web Vitals optimization for instant mobile loading",
+            "SEO improvements for local market discoverability"
+        ],
+        technologies: [
+            "React.js", "Next.js", "TypeScript", "Tailwind CSS", "Google Maps Platform"
+        ],
+        tagLabel: "CakeNook Platform",
+        tagHref: "/work/cakenook"
     },
     {
-        year: "2022 – 2023",
-        title: "Junior Software Developer",
-        desc: "Joined Nizzcorp. Developed employee/sales management apps (Flutter, React.js, Node.js, PostgreSQL) and engineered a custom drag-and-drop ERP page builder.",
-    },
-    {
-        year: "2024 – 2025",
-        title: "Freelance Frontend Developer",
-        desc: "Developed responsive business websites using React.js and designed a sales tracking web application for managing sales workflows.",
-    },
-    {
-        year: "2025",
-        title: "Flutter Developer",
-        desc: "Worked at SpiralCode Innovates LLP on enterprise-grade Flutter applications, building offline-first systems, Clean Architecture, and native Android integrations.",
-        tagLabel: "WAVES Project",
-        tagHref: "/work/waves",
-    },
-    {
-        year: "2026",
-        title: "Freelance Flutter Developer",
-        desc: "Joined Inquisyx (Contract). Redesigned core UI/UX flows and implemented Google Maps real-time navigation, geofencing validations, and offer workflows.",
-    },
-    {
-        year: "2026",
-        title: "Freelance Frontend Developer",
-        desc: "Built a custom multi-vendor hyperlocal e-commerce web platform (CakeNook) using Next.js, React, Tailwind, Razorpay, and geocoded delivery bounds.",
-        tagLabel: "CakeNook",
-        tagHref: "/work/cakenook",
-    },
-    {
-        year: "Present",
-        title: "Open to Opportunities",
-        desc: "Seeking senior mobile developer or cross-platform engineering roles in high-performance product teams.",
-    },
+        company: "Nizzcorp",
+        role: "Junior Software Developer",
+        period: "2022 – 2023",
+        description: "Started my professional journey by developing ERP and employee management solutions.",
+        highlights: [
+            "Employee Management Application development",
+            "Field Sales Management application",
+            "Drag-and-drop ERP Page Builder engine",
+            "REST API Integration across mobile & backend",
+            "SVG serialization engine for custom dynamic layouts"
+        ],
+        technologies: [
+            "Flutter", "React", "Node.js", "MongoDB", "PostgreSQL"
+        ]
+    }
 ];
 
-// ─── Component ────────────────────────────────────────────────────────────────
-
 export const StoryTimeline = () => {
-    const scrollRef = useRef<HTMLDivElement>(null);
-    const [activeIndex, setActiveIndex] = useState(0);
-
-    // Track which card is closest to the center of the scroll container
-    const onScroll = useCallback(() => {
-        const container = scrollRef.current;
-        if (!container) return;
-
-        const containerCenter = container.scrollLeft + container.clientWidth / 2;
-        const cards = container.querySelectorAll<HTMLElement>("[data-card]");
-        let nearest = 0;
-        let minDist = Infinity;
-
-        cards.forEach((card, i) => {
-            const cardCenter = card.offsetLeft + card.offsetWidth / 2;
-            const dist = Math.abs(containerCenter - cardCenter);
-            if (dist < minDist) {
-                minDist = dist;
-                nearest = i;
-            }
-        });
-
-        setActiveIndex(nearest);
-    }, []);
-
-    useEffect(() => {
-        const el = scrollRef.current;
-        if (!el) return;
-        el.addEventListener("scroll", onScroll, { passive: true });
-        return () => el.removeEventListener("scroll", onScroll);
-    }, [onScroll]);
-
-    // Programmatic snap-scroll to a card index
-    const scrollTo = (index: number) => {
-        const container = scrollRef.current;
-        if (!container) return;
-        const cards = container.querySelectorAll<HTMLElement>("[data-card]");
-        const card = cards[index];
-        if (!card) return;
-        const offset = card.offsetLeft - container.clientWidth / 2 + card.offsetWidth / 2;
-        container.scrollTo({ left: offset, behavior: "smooth" });
-    };
-
     return (
-        <section id="about" className="bg-zinc-950 py-24 text-white overflow-hidden">
-            <div className="mx-auto max-w-7xl px-6 sm:px-12">
+        <section id="about" className="bg-zinc-950 py-24 text-white relative overflow-hidden">
+            <div className="mx-auto max-w-7xl px-6 sm:px-12 relative z-10">
 
                 {/* Section Header */}
                 <motion.div
@@ -118,180 +83,122 @@ export const StoryTimeline = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
-                    className="mb-16"
+                    className="mb-12 text-center"
                 >
-                    <p className="text-xs font-mono text-flutter-blue uppercase tracking-widest mb-2">Career Path</p>
-                    <h2 className="text-3xl font-bold font-heading">My Journey</h2>
+                    <p className="text-xs font-mono text-flutter-blue uppercase tracking-widest mb-2">My Story & Background</p>
+                    <h2 className="text-3xl font-bold font-heading sm:text-4xl">About Me</h2>
                 </motion.div>
 
-                {/* Dot navigation */}
-                <div className="mb-8 flex items-center gap-2">
-                    {milestones.map((_, i) => (
-                        <button
-                            key={i}
-                            onClick={() => scrollTo(i)}
-                            aria-label={`Go to milestone ${i + 1}`}
-                            className={`transition-all duration-300 rounded-full ${
-                                i === activeIndex
-                                    ? "w-6 h-2 bg-flutter-blue"
-                                    : "w-2 h-2 bg-zinc-700 hover:bg-zinc-500"
-                            }`}
-                        />
-                    ))}
-                    <span className="ml-auto text-xs font-mono text-zinc-600">
-                        {activeIndex + 1} / {milestones.length}
-                    </span>
-                </div>
-            </div>
+                {/* About Me Story Block */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="mb-20 rounded-3xl border border-zinc-800 bg-zinc-900/60 p-8 sm:p-12 backdrop-blur-md shadow-2xl"
+                >
+                    <div className="space-y-4 text-zinc-300 text-base sm:text-lg font-light leading-relaxed">
+                        <p>
+                            I&apos;m a <strong className="text-white font-semibold">Flutter Developer from Kerala, India</strong>, with over two years of professional experience building mobile applications for enterprise and consumer products.
+                        </p>
+                        <p>
+                            Throughout my career, I have worked on ERP systems, logistics platforms, employee management applications, field-sales solutions, and hyperlocal marketplaces.
+                        </p>
+                        <p>
+                            My work focuses on developing reliable, scalable, and maintainable applications using modern Flutter architecture. I enjoy solving complex engineering challenges involving offline-first applications, background services, native Android integrations, geofencing, and real-time location tracking.
+                        </p>
+                        <p>
+                            Besides Flutter, I also have experience building responsive web applications using React.js and Next.js, allowing me to contribute across mobile and web platforms when needed.
+                        </p>
+                        <p>
+                            I continuously improve my skills by exploring Flutter internals, Android development with Kotlin, and software architecture while building production-ready applications.
+                        </p>
+                    </div>
+                </motion.div>
 
-            {/* ── Scrollable Timeline Track ─────────────────────────────────────── */}
-            {/*
-                Both the axis line and the cards live inside this container.
-                They scroll together so the line and dots can never desync.
-            */}
-            <div
-                ref={scrollRef}
-                className="flex gap-0 overflow-x-auto pb-10 pt-14"
-                style={{
-                    scrollSnapType: "x mandatory",
-                    WebkitOverflowScrolling: "touch",
-                    msOverflowStyle: "none",
-                    scrollbarWidth: "none",
-                }}
-            >
-                {/* Left spacer so first card can center */}
-                <div className="shrink-0 w-[calc(50vw-160px)]" aria-hidden="true" />
+                {/* Experience Section */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5 }}
+                    className="mb-12"
+                >
+                    <p className="text-xs font-mono text-flutter-blue uppercase tracking-widest mb-2">Professional Journey</p>
+                    <h2 className="text-3xl font-bold font-heading sm:text-4xl">Work Experience</h2>
+                </motion.div>
 
-                {milestones.map((milestone, index) => {
-                    const isActive = index === activeIndex;
-                    const isAdjacent = Math.abs(index - activeIndex) === 1;
-
-                    return (
-                        <div
-                            key={index}
-                            data-card
-                            style={{ scrollSnapAlign: "center" }}
-                            className="relative shrink-0 w-[320px] px-3 flex flex-col"
+                <div className="space-y-8">
+                    {experiences.map((exp, index) => (
+                        <motion.div
+                            key={exp.company}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: index * 0.1 }}
+                            className="rounded-3xl border border-zinc-800/80 bg-zinc-900/40 p-8 hover:border-zinc-700 transition-colors"
                         >
-                            {/* ── Timeline axis: line + dot ── */}
-                            {/* Line spans full card width; dots align center */}
-                            <div className="relative flex items-center justify-center h-8 mb-4">
-                                {/* Left half-line */}
-                                <div className="absolute top-1/2 -translate-y-1/2 left-0 right-1/2 h-px bg-zinc-800" />
-                                {/* Right half-line */}
-                                <div className="absolute top-1/2 -translate-y-1/2 left-1/2 right-0 h-px bg-zinc-800" />
-
-                                {/* Active line highlight (left → right of active card) */}
-                                {isActive && (
-                                    <motion.div
-                                        layoutId="active-line"
-                                        className="absolute top-1/2 -translate-y-1/2 left-0 right-0 h-px bg-flutter-blue/50"
-                                    />
-                                )}
-
-                                {/* Dot */}
-                                <motion.div
-                                    animate={{
-                                        scale: isActive ? 1.4 : 1,
-                                        backgroundColor: isActive ? "#0468D7" : "#3f3f46",
-                                        boxShadow: isActive
-                                            ? "0 0 0 4px rgba(4,104,215,0.2), 0 0 14px rgba(4,104,215,0.45)"
-                                            : "none",
-                                    }}
-                                    transition={{ type: "spring", stiffness: 300, damping: 25 }}
-                                    className="relative z-10 h-3.5 w-3.5 rounded-full"
-                                />
+                            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 border-b border-zinc-800/80 pb-6">
+                                <div>
+                                    <h3 className="text-2xl font-bold text-white font-heading">{exp.company}</h3>
+                                    <div className="flex items-center gap-2 mt-1">
+                                        <Briefcase size={16} className="text-flutter-blue" />
+                                        <span className="text-base font-medium text-flutter-blue">{exp.role}</span>
+                                    </div>
+                                </div>
+                                <div className="flex items-center gap-2 text-sm font-mono text-zinc-400 bg-zinc-800/60 px-4 py-1.5 rounded-full w-fit">
+                                    <Calendar size={14} />
+                                    <span>{exp.period}</span>
+                                </div>
                             </div>
 
-                            {/* ── Card ── */}
-                            <motion.div
-                                animate={{
-                                    scale: isActive ? 1 : isAdjacent ? 0.95 : 0.88,
-                                    opacity: isActive ? 1 : isAdjacent ? 0.55 : 0.3,
-                                }}
-                                transition={{ type: "spring", stiffness: 280, damping: 28 }}
-                                className={`
-                                    flex-1 rounded-2xl border p-6 backdrop-blur-sm
-                                    transition-colors duration-300
-                                    ${isActive
-                                        ? "border-flutter-blue/40 bg-zinc-900 shadow-[0_0_32px_rgba(4,104,215,0.12)]"
-                                        : "border-zinc-800 bg-zinc-900/40"
-                                    }
-                                `}
-                            >
-                                {/* Year badge */}
-                                <span
-                                    className={`
-                                        inline-block text-[10px] font-bold tracking-widest uppercase px-2.5 py-1 rounded-full mb-3
-                                        transition-colors duration-300
-                                        ${isActive
-                                            ? "bg-flutter-blue/15 text-flutter-blue"
-                                            : "bg-zinc-800 text-zinc-500"
-                                        }
-                                    `}
-                                >
-                                    {milestone.year}
-                                </span>
+                            <p className="text-zinc-300 text-base mb-6 leading-relaxed">
+                                {exp.description}
+                            </p>
 
-                                <h3 className="text-base font-bold leading-snug mb-2 text-white">{milestone.title}</h3>
-                                <p className="text-sm text-zinc-400 leading-relaxed">{milestone.desc}</p>
+                            {/* Highlights */}
+                            <div className="mb-6">
+                                <h4 className="text-xs font-mono text-zinc-400 uppercase tracking-wider mb-3">Highlights</h4>
+                                <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                    {exp.highlights.map((h) => (
+                                        <li key={h} className="flex items-start gap-2.5 text-sm text-zinc-300">
+                                            <CheckCircle2 size={16} className="text-flutter-blue shrink-0 mt-0.5" />
+                                            <span>{h}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
 
-                                {/* Project evidence chip — anchored to its parent milestone */}
-                                {milestone.tagHref && milestone.tagLabel && (
+                            {/* Technologies */}
+                            <div>
+                                <h4 className="text-xs font-mono text-zinc-400 uppercase tracking-wider mb-3">Technologies</h4>
+                                <div className="flex flex-wrap gap-2">
+                                    {exp.technologies.map((tech) => (
+                                        <span
+                                            key={tech}
+                                            className="px-3 py-1 rounded-full text-xs font-medium bg-zinc-800/80 text-zinc-300 border border-zinc-700/50"
+                                        >
+                                            {tech}
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+
+                            {exp.tagHref && exp.tagLabel && (
+                                <div className="mt-6 pt-4 border-t border-zinc-800/60">
                                     <Link
-                                        href={milestone.tagHref}
-                                        className={`
-                                            mt-4 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold
-                                            border transition-all duration-200
-                                            ${isActive
-                                                ? "border-flutter-blue/40 text-flutter-blue bg-flutter-blue/10 hover:bg-flutter-blue/20"
-                                                : "border-zinc-700 text-zinc-500 bg-zinc-800/50 hover:border-zinc-600 hover:text-zinc-300"
-                                            }
-                                        `}
+                                        href={exp.tagHref}
+                                        className="inline-flex items-center gap-2 text-sm font-semibold text-flutter-blue hover:text-blue-400 transition-colors"
                                     >
-                                        <ExternalLink size={11} />
-                                        {milestone.tagLabel}
+                                        <ExternalLink size={14} />
+                                        <span>View {exp.tagLabel} Case Study</span>
                                     </Link>
-                                )}
-                            </motion.div>
+                                </div>
+                            )}
+                        </motion.div>
+                    ))}
+                </div>
 
-                            {/* "Now viewing" label under active card */}
-                            <div className="h-6 mt-2 flex items-center justify-center">
-                                {isActive && (
-                                    <motion.span
-                                        initial={{ opacity: 0, y: 4 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        exit={{ opacity: 0 }}
-                                        className="text-[10px] font-mono text-flutter-blue/50 uppercase tracking-widest"
-                                    >
-                                        ● Now viewing
-                                    </motion.span>
-                                )}
-                            </div>
-                        </div>
-                    );
-                })}
-
-                {/* Right spacer */}
-                <div className="shrink-0 w-[calc(50vw-160px)]" aria-hidden="true" />
-            </div>
-
-            {/* Prev / Next controls */}
-            <div className="mx-auto max-w-7xl px-6 sm:px-12 mt-2 flex items-center justify-end gap-4">
-                <button
-                    onClick={() => scrollTo(Math.max(0, activeIndex - 1))}
-                    disabled={activeIndex === 0}
-                    className="text-xs font-mono text-zinc-600 hover:text-white disabled:opacity-25 transition-colors"
-                >
-                    ← prev
-                </button>
-                <button
-                    onClick={() => scrollTo(Math.min(milestones.length - 1, activeIndex + 1))}
-                    disabled={activeIndex === milestones.length - 1}
-                    className="text-xs font-mono text-zinc-600 hover:text-white disabled:opacity-25 transition-colors"
-                >
-                    next →
-                </button>
             </div>
         </section>
     );

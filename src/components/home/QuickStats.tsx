@@ -4,10 +4,10 @@ import { motion, useInView, useSpring, useMotionValue } from "framer-motion";
 import { useEffect, useRef } from "react";
 
 const stats = [
-    { label: "Experience", value: 3, suffix: "+", sublabel: "Software Engineering" },
-    { label: "Production Apps", value: 8, suffix: "+", sublabel: "Delivered for Clients" },
-    { label: "Crash Reduction", value: 70, suffix: "%", sublabel: "WAVES 2 ERP Application" },
-    { label: "GPS Accuracy", value: 70, suffix: "%", sublabel: "Ozone Activity Tracker" },
+    { label: "Production Apps", value: 6, suffix: "+", sublabel: "Flutter Applications Delivered" },
+    { label: "Years Experience", value: 2, suffix: "+", sublabel: "Mobile & Frontend Engineering" },
+    { label: "Technologies", value: 10, suffix: "+", sublabel: "Mobile, Web & Databases" },
+    { label: "Production Focused", value: 100, suffix: "%", sublabel: "Scalable Engineering" },
 ];
 
 const Counter = ({ value, suffix }: { value: number; suffix: string }) => {
@@ -38,7 +38,7 @@ const Counter = ({ value, suffix }: { value: number; suffix: string }) => {
 
 export const QuickStats = () => {
     return (
-        <section className="relative z-10 -mt-20 w-full px-4 sm:px-8">
+        <section className="relative z-10 -mt-12 w-full px-4 sm:px-8">
             <div className="mx-auto max-w-6xl rounded-3xl border border-white/10 bg-black/60 p-8 shadow-2xl backdrop-blur-xl sm:p-12">
                 <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
                     {stats.map((stat, index) => (

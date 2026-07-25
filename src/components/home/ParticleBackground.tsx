@@ -105,8 +105,7 @@ export const ParticleBackground = () => {
                             Math.random() * (cfg.radius[1] - cfg.radius[0]),
                         layer: layerIndex as 0 | 1 | 2,
                         twinkleOffset: Math.random() * Math.PI * 2,
-                        // Slower speed for a natural, organic twinkle (scintillation)
-                        twinkleSpeed: 0.0005 + Math.random() * 0.001,
+                        twinkleSpeed: 0.01 + Math.random() * 0.015,
                         driftAngle: Math.random() * Math.PI * 2,
                     });
                 }
@@ -190,13 +189,8 @@ export const ParticleBackground = () => {
                     s.y = s.baseY + Math.sin(s.driftAngle) * 6;
                     s.driftAngle += cfg.speed;
                 }
-                const phase = time * s.twinkleSpeed + s.twinkleOffset;
-                // A primary slow sine wave combined with a faster secondary wave to simulate atmospheric perturbation (scintillation)
                 const twinkle = animated
-                    ? 0.5 +
-                      0.5 *
-                          (Math.sin(phase) * 0.75 +
-                              Math.sin(phase * 2.5 + s.twinkleOffset) * 0.25)
+                    ? 0.5 + 0.5 * Math.sin(time * s.twinkleSpeed + s.twinkleOffset)
                     : 0.75;
                 const opacity = cfg.opacity * (0.4 + twinkle * 0.6);
 
