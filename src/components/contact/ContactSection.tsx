@@ -36,7 +36,7 @@ export const ContactSection = () => {
                                     <span>Send Email</span>
                                 </a>
                                 <a
-                                    href="/SHUHAIB-KT.pdf"
+                                    href="/SHUHAIB_K_T.pdf"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="flex items-center justify-center gap-2 rounded-full border border-zinc-700 bg-transparent px-6 py-3 font-medium text-white transition-colors hover:bg-white/5"

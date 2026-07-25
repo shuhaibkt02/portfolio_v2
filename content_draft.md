@@ -193,4 +193,4 @@ React.js | Next.js | Tailwind CSS | TypeScript
 - LinkedIn: `linkedin.com/in/shuhaibkt`
 - GitHub: `github.com/shuhaibkt02`
 - Medium: `medium.com/@shuhaibkt02`
-- Resume Download: `SHUHAIB-KT.pdf`
+- Resume Download: `SHUHAIB_K_T.pdf`

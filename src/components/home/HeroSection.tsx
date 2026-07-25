@@ -64,7 +64,7 @@ export const HeroSection = () => {
                     </a>
 
                     <a
-                        href="/SHUHAIB-KT.pdf"
+                        href="/SHUHAIB_K_T.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="group flex items-center justify-center gap-2 rounded-full border border-zinc-700 bg-transparent px-8 py-3.5 text-lg font-medium text-zinc-300 transition-all hover:border-zinc-500 hover:text-white"
