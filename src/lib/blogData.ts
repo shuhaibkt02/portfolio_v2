@@ -17,6 +17,10 @@ export interface BlogPost {
     category: string;
     tags: string[];
     featured?: boolean;
+    bannerSnippet?: {
+        label: string;
+        codeLines: { text: string; color?: string }[];
+    };
     author: {
         name: string;
         role: string;
@@ -36,6 +40,15 @@ export const blogPosts: BlogPost[] = [
         category: "Flutter & Architecture",
         tags: ["Flutter", "Clean Architecture", "Testing", "Firebase", "REST API", "Dart"],
         featured: true,
+        bannerSnippet: {
+            label: "ARCHITECTURE GUIDE",
+            codeLines: [
+                { text: "Domain (Pure Dart Contract)", color: "text-flutter-blue font-semibold" },
+                { text: "  ↓ LoginUseCase (AND logic)", color: "text-emerald-400" },
+                { text: "  ↓ AuthRepositoryImpl", color: "text-purple-300" },
+                { text: "  ↓ Firebase / REST Data", color: "text-amber-400" }
+            ]
+        },
         author: {
             name: "Shuhaib KT",
             role: "Flutter & Mobile Engineer"
@@ -306,6 +319,14 @@ try {
         category: "Flutter & Security",
         tags: ["Flutter", "Security", "Android", "iOS", "DevOps"],
         featured: false,
+        bannerSnippet: {
+            label: "SECURITY GUIDE",
+            codeLines: [
+                { text: "$ flutter build apk \\", color: "text-flutter-blue font-semibold" },
+                { text: "--obfuscate \\", color: "text-emerald-400" },
+                { text: "--split-debug-info=symbols", color: "text-purple-300" }
+            ]
+        },
         author: {
             name: "Shuhaib KT",
             role: "Flutter & Mobile Engineer"
@@ -433,6 +454,14 @@ try {
         category: "Architecture & REST APIs",
         tags: ["Flutter", "REST API", "Clean Architecture", "Hive", "Offline-First"],
         featured: false,
+        bannerSnippet: {
+            label: "REST API & SYNC",
+            codeLines: [
+                { text: "Hive Box -> Local Write", color: "text-flutter-blue font-semibold" },
+                { text: "Retry Queue -> Exponential Backoff", color: "text-emerald-400" },
+                { text: "REST API Sync Worker", color: "text-purple-300" }
+            ]
+        },
         author: {
             name: "Shuhaib KT",
             role: "Flutter & Mobile Engineer"

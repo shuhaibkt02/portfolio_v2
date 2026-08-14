@@ -146,16 +146,20 @@ export default function BlogListPage() {
                                 {/* Tech Gradient Graphic Banner */}
                                 <div className={`lg:col-span-5 relative aspect-video rounded-2xl overflow-hidden bg-gradient-to-br ${featuredPost.coverGradient} border border-white/10 p-6 flex flex-col justify-between group-hover:scale-[1.02] transition-transform duration-500`}>
                                     <div className="flex items-center justify-between text-white/60">
-                                        <ShieldCheck size={28} className="text-flutter-blue" />
+                                        <Cpu size={28} className="text-flutter-blue" />
                                         <span className="text-[10px] font-mono tracking-widest uppercase bg-black/40 px-2.5 py-1 rounded-md border border-white/10">
-                                            SECURITY GUIDE
+                                            {featuredPost.bannerSnippet?.label || "FEATURED POST"}
                                         </span>
                                     </div>
-                                    <div className="space-y-1 font-mono text-xs text-zinc-300 bg-black/50 backdrop-blur-md p-3.5 rounded-xl border border-white/10">
-                                        <div className="text-flutter-blue font-semibold">$ flutter build apk \</div>
-                                        <div className="pl-4 text-emerald-400">--obfuscate \</div>
-                                        <div className="pl-4 text-purple-300">--split-debug-info=symbols</div>
-                                    </div>
+                                    {featuredPost.bannerSnippet && (
+                                        <div className="space-y-1 font-mono text-xs text-zinc-300 bg-black/50 backdrop-blur-md p-3.5 rounded-xl border border-white/10">
+                                            {featuredPost.bannerSnippet.codeLines.map((line, lIdx) => (
+                                                <div key={lIdx} className={line.color || "text-zinc-300"}>
+                                                    {line.text}
+                                                </div>
+                                            ))}
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                         </Link>
