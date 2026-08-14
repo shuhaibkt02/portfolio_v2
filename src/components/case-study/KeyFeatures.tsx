@@ -101,10 +101,7 @@ export const KeyFeatures = ({ features }: KeyFeaturesProps) => {
                                                 </div>
                                             </div>
 
-                                            {/* Placeholder for feature visual (e.g. video/gif) */}
-                                            <div className="mt-4 aspect-video w-full rounded-xl bg-zinc-950 border border-zinc-800 flex items-center justify-center text-zinc-600">
-                                                [Feature Demo/Screenshot Placeholder for {feature.label}]
-                                            </div>
+
                                         </motion.div>
                                     );
                                 }

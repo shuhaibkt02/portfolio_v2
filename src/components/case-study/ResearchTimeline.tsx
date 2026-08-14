@@ -60,7 +60,6 @@ export const ResearchTimeline = ({ research }: ResearchTimelineProps) => {
                                             <p className="mt-2 text-zinc-400">{phase.description}</p>
                                         </div>
                                         <div className={`hidden md:block ${isEven ? 'md:text-left' : 'md:text-right'}`}>
-                                            {/* Placeholder for optional image or detail */}
                                         </div>
                                     </div>
                                 </motion.div>

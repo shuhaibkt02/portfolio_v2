@@ -1,6 +1,6 @@
 "use client";
 
-import { Home, Briefcase, Cpu, User, Mail, Menu, X } from "lucide-react";
+import { Home, Briefcase, Cpu, User, Mail, Menu, X, BookOpen } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
@@ -11,15 +11,19 @@ import { useScrollSpy } from "@/hooks/useScrollSpy";
 import { ImmersiveToggle } from "@/components/ui/ImmersiveToggle";
 
 const navItems = [
-    { name: "Home", href: "#home", icon: Home },
-    { name: "Work", href: "#work", icon: Briefcase },
-    { name: "Skills", href: "#skills", icon: Cpu },
-    { name: "About", href: "#about", icon: User },
-    { name: "Contact", href: "#contact", icon: Mail },
+    { name: "Home", href: "/#home", sectionId: "home", icon: Home },
+    { name: "Work", href: "/#work", sectionId: "work", icon: Briefcase },
+    { name: "Skills", href: "/#skills", sectionId: "skills", icon: Cpu },
+    { name: "Blog", href: "/blog", sectionId: "blog", icon: BookOpen },
+    { name: "About", href: "/#about", sectionId: "about", icon: User },
+    { name: "Contact", href: "/#contact", sectionId: "contact", icon: Mail },
 ];
 
+const SECTION_IDS = ["home", "work", "skills", "blog", "about", "contact"];
+
 export const NavBar = () => {
-    const activeSection = useScrollSpy(navItems.map((item) => item.href.replace("#", "")), 100);
+    const pathname = usePathname();
+    const activeScrollSection = useScrollSpy(SECTION_IDS, 250);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     // Lock body scroll when mobile menu is open
@@ -30,6 +34,14 @@ export const NavBar = () => {
             document.body.style.overflow = "unset";
         }
     }, [isMobileMenuOpen]);
+
+    // Active item logic: handle route path vs scroll position
+    const getIsActive = (sectionId: string) => {
+        if (pathname?.startsWith("/blog")) {
+            return sectionId === "blog";
+        }
+        return activeScrollSection === sectionId;
+    };
 
     return (
         <>
@@ -42,7 +54,7 @@ export const NavBar = () => {
                     transition={{ type: "spring", damping: 20, stiffness: 100 }}
                 >
                     {navItems.map((item) => {
-                        const isActive = activeSection === item.href.replace("#", "");
+                        const isActive = getIsActive(item.sectionId);
                         const Icon = item.icon;
 
                         return (
@@ -86,9 +98,13 @@ export const NavBar = () => {
             <div className="md:hidden">
                 {/* Top Bar */}
                 <div className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between border-b border-white/5 bg-black/60 px-6 py-4 backdrop-blur-lg backdrop-saturate-150 supports-[backdrop-filter]:bg-black/30">
-                    <span className="text-xl font-bold font-heading">
-                        <span className="text-flutter-blue">Shuhaib</span>
-                    </span>
+                    <Link
+                        href="/#home"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="text-xl font-bold font-heading text-flutter-blue"
+                    >
+                        Shuhaib
+                    </Link>
                     <div className="flex items-center gap-4">
                         <ImmersiveToggle />
                         <button
@@ -113,7 +129,7 @@ export const NavBar = () => {
                         >
                             <nav className="flex flex-col items-center gap-8">
                                 {navItems.map((item, index) => {
-                                    const isActive = activeSection === item.href.replace("#", "");
+                                    const isActive = getIsActive(item.sectionId);
                                     const Icon = item.icon;
 
                                     return (
@@ -151,3 +167,4 @@ export const NavBar = () => {
         </>
     );
 };
+

@@ -123,3 +123,7 @@ export const AndroidStudioIcon = mkIcon(<>
     <rect x="2" y="15" width="20" height="7" rx="2" stroke="currentColor" strokeWidth="1.5" />
     <path d="M7 18.5h10M12 17v3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
 </>);
+
+export const AwsIcon = mkIcon(
+    <path d="M18.75 14.13c-.34-.23-.74-.35-1.14-.35-.78 0-1.5.4-1.9 1.05l-1.02 1.66c-.19.3-.52.48-.88.48h-3.62c-.36 0-.69-.18-.88-.48l-1.02-1.66A2.24 2.24 0 0 0 6.39 13.78c-.4 0-.8.12-1.14.35l-2.07 1.4c-.45.3-.72.8-.72 1.34 0 .9.73 1.63 1.63 1.63h15.82c.9 0 1.63-.73 1.63-1.63 0-.54-.27-1.04-.72-1.34l-2.07-1.4zM12 2C9.24 2 7 4.24 7 7c0 1.83 1.02 3.42 2.5 4.25.32.18.7.27 1.08.27h2.84c.38 0 .76-.09 1.08-.27C15.98 10.42 17 8.83 17 7c0-2.76-2.24-5-5-5z" fill="currentColor" />
+);

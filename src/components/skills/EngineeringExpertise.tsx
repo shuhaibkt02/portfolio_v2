@@ -6,7 +6,7 @@ import {
     FlutterIcon, DartIcon, KotlinIcon, AndroidIcon, NextJsIcon,
     TypeScriptIcon, FirebaseIcon, GitIcon, PostgreSQLIcon,
     HiveIcon, RoomIcon, SentryIcon, ReactIcon, GithubActionsIcon,
-    CleanArchIcon, BlocIcon, RiverpodIcon, AndroidStudioIcon
+    CleanArchIcon, BlocIcon, RiverpodIcon, AndroidStudioIcon, AwsIcon
 } from "@/components/icons/TechIcons";
 
 interface SkillCategory {
@@ -34,6 +34,7 @@ const skillCategories: SkillCategory[] = [
         title: "Cloud & Services",
         icon: Cloud,
         skills: [
+            { name: "AWS", icon: AwsIcon, color: "#FF9900" },
             { name: "Firebase", icon: FirebaseIcon, color: "#FFCA28" },
             { name: "Google Maps Platform" },
             { name: "REST APIs" },
@@ -78,6 +79,7 @@ const specializations = [
     "Cross-platform Mobile Apps",
     "Offline-first Architecture",
     "Native Android Integration",
+    "AWS Cloud Services",
     "Real-time Location Tracking",
     "Firebase",
     "Google Maps Platform",

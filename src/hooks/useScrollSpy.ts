@@ -2,39 +2,49 @@
 
 import { useState, useEffect } from "react";
 
-export const useScrollSpy = (ids: string[], offset: number = 0) => {
+export const useScrollSpy = (ids: string[], offset: number = 250) => {
     const [activeId, setActiveId] = useState<string>("");
 
     useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        setActiveId(entry.target.id);
-                    }
-                });
-            },
-            {
-                rootMargin: `-${offset}px 0px 0px 0px`,
-                threshold: 0.5, // Trigger when 50% of the element is visible
-            }
-        );
+        const handleScroll = () => {
+            const scrollPosition = window.scrollY + offset;
 
-        ids.forEach((id) => {
-            const element = document.getElementById(id);
-            if (element) {
-                observer.observe(element);
-            }
-        });
+            // Check elements from bottom to top or top to bottom to find current active section
+            let currentSection = "";
 
-        return () => {
-            ids.forEach((id) => {
-                const element = document.getElementById(id);
+            for (let i = 0; i < ids.length; i++) {
+                const element = document.getElementById(ids[i]);
                 if (element) {
-                    observer.unobserve(element);
+                    const top = element.offsetTop;
+                    const height = element.offsetHeight;
+
+                    if (scrollPosition >= top && scrollPosition < top + height) {
+                        currentSection = ids[i];
+                        break;
+                    }
                 }
-            });
+            }
+
+            // At very top of page
+            if (window.scrollY < 100 && ids.includes("home")) {
+                currentSection = "home";
+            }
+            // Near bottom of page
+            else if (
+                window.innerHeight + window.scrollY >= document.body.offsetHeight - 100 &&
+                ids.length > 0
+            ) {
+                currentSection = ids[ids.length - 1];
+            }
+
+            if (currentSection) {
+                setActiveId(currentSection);
+            }
         };
+
+        handleScroll();
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        return () => window.removeEventListener("scroll", handleScroll);
     }, [ids, offset]);
 
     return activeId;

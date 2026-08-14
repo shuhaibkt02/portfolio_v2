@@ -42,9 +42,11 @@ export const CaseStudyCard = ({ study, index, isFeatured = false }: CaseStudyCar
                                 </span>
                             </div>
 
-                            <h3 className="text-3xl sm:text-4xl font-bold font-heading text-white group-hover:text-flutter-blue transition-colors">
-                                {study.title}
-                            </h3>
+                            <Link href={`/work/${study.id}`}>
+                                <h3 className="text-3xl sm:text-4xl font-bold font-heading text-white group-hover:text-flutter-blue transition-colors">
+                                    {study.title}
+                                </h3>
+                            </Link>
 
                             <p className="mt-4 text-base text-zinc-300 leading-relaxed font-light">
                                 {study.description}
@@ -134,9 +136,11 @@ export const CaseStudyCard = ({ study, index, isFeatured = false }: CaseStudyCar
                     </Link>
                 </div>
 
-                <h3 className="text-2xl font-bold font-heading text-white group-hover:text-flutter-blue transition-colors">
-                    {study.title}
-                </h3>
+                <Link href={`/work/${study.id}`}>
+                    <h3 className="text-2xl font-bold font-heading text-white group-hover:text-flutter-blue transition-colors">
+                        {study.title}
+                    </h3>
+                </Link>
 
                 <p className="mt-3 text-sm text-zinc-400 font-light leading-relaxed line-clamp-2">
                     {study.description}
@@ -173,3 +177,4 @@ export const CaseStudyCard = ({ study, index, isFeatured = false }: CaseStudyCar
         </motion.div>
     );
 };
+
