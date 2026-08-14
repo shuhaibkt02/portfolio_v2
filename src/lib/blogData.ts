@@ -17,6 +17,7 @@ export interface BlogPost {
     category: string;
     tags: string[];
     featured?: boolean;
+    likeCount: number; // Default: 0 in static data; hydrated from Firestore at runtime
     bannerSnippet?: {
         label: string;
         codeLines: { text: string; color?: string }[];
@@ -26,6 +27,14 @@ export interface BlogPost {
         role: string;
     };
     sections: BlogSection[];
+}
+
+/**
+ * Server-enriched type returned to pages after Firestore hydration.
+ * Keeps static article content and live engagement data conceptually separate.
+ */
+export interface BlogPostWithEngagement extends BlogPost {
+    likeCount: number; // Real-time value from Firestore, overrides the static default
 }
 
 export const blogPosts: BlogPost[] = [
@@ -40,6 +49,7 @@ export const blogPosts: BlogPost[] = [
         category: "Flutter & Architecture",
         tags: ["Flutter", "Clean Architecture", "Testing", "Firebase", "REST API", "Dart"],
         featured: true,
+        likeCount: 0,
         bannerSnippet: {
             label: "ARCHITECTURE GUIDE",
             codeLines: [
@@ -319,6 +329,7 @@ try {
         category: "Flutter & Security",
         tags: ["Flutter", "Security", "Android", "iOS", "DevOps"],
         featured: false,
+        likeCount: 0,
         bannerSnippet: {
             label: "SECURITY GUIDE",
             codeLines: [
@@ -454,6 +465,7 @@ try {
         category: "Architecture & REST APIs",
         tags: ["Flutter", "REST API", "Clean Architecture", "Hive", "Offline-First"],
         featured: false,
+        likeCount: 0,
         bannerSnippet: {
             label: "REST API & SYNC",
             codeLines: [
