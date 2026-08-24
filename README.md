@@ -1,30 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Shuhaib KT
 
-## Getting Started
+> **Mobile & Frontend Engineer** | Flutter • Dart • Native Android (Kotlin) • Next.js • React
 
-First, run the development server:
+Welcome to my personal portfolio repository! I'm a software engineer from Kerala, India, specializing in building high-performance, scalable mobile applications and modern web experiences.
 
-```bash
-pnpm dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 👨‍💻 About Me
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- 📱 **Mobile Development**: Over 2 years of experience delivering production-grade enterprise & consumer mobile apps with **Flutter** and **Kotlin**.
+- 🌐 **Web Engineering**: Experienced in modern frontend ecosystems with **React.js**, **Next.js**, and **TypeScript**.
+- 🛠️ **Architectural Focus**: Deep knowledge in **Clean Architecture**, **BLoC / Riverpod**, **Offline-First Systems (Hive / Room DB)**, background sync workers, and native platform channels (MethodChannel / EventChannel).
+- 📍 **Core Specializations**: Geofencing & GPS tracking, background foreground services, payment integrations, real-time sync, and performance optimization.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🚀 Key Skills & Technologies
 
-To learn more about Next.js, take a look at the following resources:
+- **Languages**: Dart, Kotlin, TypeScript, JavaScript, HTML5/CSS3
+- **Mobile**: Flutter, Android Native Integration, BLoC, Riverpod, Hive, Room DB, Platform Channels
+- **Frontend & Web**: Next.js, React.js, Tailwind CSS, Framer Motion
+- **Backend & Cloud**: Firebase (Firestore, Auth, Cloud Messaging), REST APIs, Sentry, Fastlane, GitHub Actions
+- **Tooling & Services**: Google Maps Platform, Ola Maps, Razorpay, Git
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📂 Featured Work & Case Studies
 
-## Deploy on Vercel
+- **WAVES 2 (Enterprise Sales Platform)**: An offline-first enterprise mobile solution combining primary and secondary sales workflows with background synchronization, geofence constraints, and automated mileage tracking.
+- **CakeNook (Hyper-Local Marketplace)**: A performant multi-vendor celebration marketplace built with Next.js, featuring real-time geocoded delivery validation and Razorpay payments.
+- **WAVES (Primary Sales ERP)**: An offline-first ERP mobile solution featuring direct Bluetooth thermal printing, stock reconciliations, and background GPS location tracking.
+- **Ozone (Activity & Distance Tracker)**: Workforce tracking solution engineered with a native Kotlin foreground service, Kalman filtering algorithms for GPS drift, and resilient Room DB persistence.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📬 Connect with Me
+
+- 🌐 **Portfolio**: [shuhaibkt.vercel.app](https://shuhaibkt.vercel.app)
+- 💼 **LinkedIn**: [linkedin.com/in/shuhaibkt](https://www.linkedin.com/in/shuhaibkt/)
+- 🐙 **GitHub**: [github.com/shuhaibkt02](https://github.com/shuhaibkt02)
+- ✍️ **Medium**: [medium.com/@shuhaibkt02](https://medium.com/@shuhaibkt02)
+- 📧 **Email**: [shuhaibkt02@gmail.com](mailto:shuhaibkt02@gmail.com)
