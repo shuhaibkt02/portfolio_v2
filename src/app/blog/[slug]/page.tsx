@@ -2,7 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Calendar, Clock, Tag } from "lucide-react";
 import { getBlogBySlug, getAllBlogs } from "@/lib/blogData";
-import { db } from "@/lib/firebase/admin";
+import { getArticleLikeCount } from "@/lib/blogEngagement";
 import { renderSection } from "@/components/ui/ArticleSections";
 import { ShareButton } from "@/components/ui/ArticleActions";
 import { LikeButton } from "@/components/ui/LikeButton";
@@ -21,30 +21,17 @@ export default async function BlogDetailsPage({ params }: BlogDetailsPageProps) 
 
     if (!post) notFound();
 
-    // Fetch real likeCount from Firestore server-side for accurate SSR initial render
-    let initialLikeCount = post.likeCount;
-    try {
-        const articleDoc = await db.collection("articles").doc(post.id).get();
-        if (articleDoc.exists) {
-            initialLikeCount = articleDoc.data()?.likeCount ?? post.likeCount;
-        }
-    } catch (err) {
-        console.error("[BlogDetailsPage] Firestore likeCount fetch failed:", err);
-        // Non-fatal — fall back to static default (0)
-    }
-
+    const initialLikeCount = await getArticleLikeCount(post.id, post.likeCount);
     const allBlogs = getAllBlogs();
     const relatedPosts = allBlogs.filter((p) => p.slug !== post.slug).slice(0, 2);
 
     return (
         <main className="min-h-screen bg-zinc-950 text-white pt-28 pb-24 px-6 sm:px-12 relative overflow-hidden">
-            {/* Ambient Background */}
             <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute top-24 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-flutter-blue/5 rounded-full blur-3xl" />
             </div>
 
             <div className="mx-auto max-w-4xl relative z-10">
-                {/* Navigation Back Link */}
                 <div className="mb-8">
                     <Link
                         href="/blog"
@@ -55,7 +42,6 @@ export default async function BlogDetailsPage({ params }: BlogDetailsPageProps) 
                     </Link>
                 </div>
 
-                {/* Article Header */}
                 <header className="mb-12">
                     <div className="flex flex-wrap items-center gap-3 mb-6">
                         <span className="px-3 py-1 rounded-full bg-flutter-blue/10 border border-flutter-blue/20 text-flutter-blue text-xs font-semibold">
@@ -81,7 +67,6 @@ export default async function BlogDetailsPage({ params }: BlogDetailsPageProps) 
                         {post.excerpt}
                     </p>
 
-                    {/* Author & Action Bar */}
                     <div className="flex items-center justify-between border-y border-zinc-800/80 py-4">
                         <div className="flex items-center gap-3">
                             <div className="h-10 w-10 rounded-full bg-flutter-blue/20 border border-flutter-blue/40 flex items-center justify-center font-bold text-flutter-blue text-sm">
@@ -93,7 +78,6 @@ export default async function BlogDetailsPage({ params }: BlogDetailsPageProps) 
                             </div>
                         </div>
 
-                        {/* Client islands: Like + Share */}
                         <div className="flex items-center gap-2">
                             <LikeButton
                                 articleId={post.id}
@@ -105,12 +89,10 @@ export default async function BlogDetailsPage({ params }: BlogDetailsPageProps) 
                     </div>
                 </header>
 
-                {/* Article Body */}
                 <article className="prose prose-invert max-w-none mb-16">
                     {post.sections.map((section, idx) => renderSection(section, idx))}
                 </article>
 
-                {/* Post-article Like CTA */}
                 <div className="flex flex-col items-center gap-4 border-t border-b border-zinc-800/80 py-10 mb-12 text-center">
                     <p className="text-sm text-zinc-400">Did you find this article helpful?</p>
                     <LikeButton
@@ -120,7 +102,6 @@ export default async function BlogDetailsPage({ params }: BlogDetailsPageProps) 
                     />
                 </div>
 
-                {/* Tags Footer */}
                 <div className="flex flex-wrap items-center gap-2 mb-16">
                     <span className="text-xs font-mono text-zinc-500 mr-2 flex items-center gap-1">
                         <Tag size={12} /> Tags:
@@ -135,7 +116,6 @@ export default async function BlogDetailsPage({ params }: BlogDetailsPageProps) 
                     ))}
                 </div>
 
-                {/* Author Card */}
                 <div className="rounded-3xl border border-zinc-800 bg-zinc-900/40 p-6 sm:p-8 mb-20 flex flex-col sm:flex-row items-center gap-6">
                     <div className="h-16 w-16 rounded-2xl bg-flutter-blue/20 border border-flutter-blue/40 flex items-center justify-center font-bold text-flutter-blue text-xl shrink-0">
                         SK
@@ -152,7 +132,6 @@ export default async function BlogDetailsPage({ params }: BlogDetailsPageProps) 
                     </div>
                 </div>
 
-                {/* Related Posts */}
                 {relatedPosts.length > 0 && (
                     <div>
                         <h3 className="text-2xl font-bold font-heading text-white mb-6">More Articles</h3>

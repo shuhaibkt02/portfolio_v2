@@ -8,8 +8,6 @@ export const useScrollSpy = (ids: string[], offset: number = 250) => {
     useEffect(() => {
         const handleScroll = () => {
             const scrollPosition = window.scrollY + offset;
-
-            // Check elements from bottom to top or top to bottom to find current active section
             let currentSection = "";
 
             for (let i = 0; i < ids.length; i++) {
@@ -25,12 +23,9 @@ export const useScrollSpy = (ids: string[], offset: number = 250) => {
                 }
             }
 
-            // At very top of page
             if (window.scrollY < 100 && ids.includes("home")) {
                 currentSection = "home";
-            }
-            // Near bottom of page
-            else if (
+            } else if (
                 window.innerHeight + window.scrollY >= document.body.offsetHeight - 100 &&
                 ids.length > 0
             ) {

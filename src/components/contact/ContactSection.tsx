@@ -6,7 +6,6 @@ import { Mail, Github, Linkedin, ArrowRight, Download, BookOpen } from "lucide-r
 export const ContactSection = () => {
     return (
         <section id="contact" className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-background py-20">
-            {/* Background Elements */}
             <div className="absolute inset-0 z-0">
                 <div className="absolute top-0 left-0 h-full w-full bg-[radial-gradient(circle_at_50%_50%,_rgba(4,104,215,0.15),transparent_70%)]" />
             </div>
@@ -19,8 +18,6 @@ export const ContactSection = () => {
                     className="overflow-hidden rounded-3xl border border-white/10 bg-black/40 p-8 shadow-2xl backdrop-blur-xl sm:p-14"
                 >
                     <div className="grid gap-12 lg:grid-cols-2">
-
-                        {/* Text Content */}
                         <div className="flex flex-col justify-center">
                             <h2 className="mb-4 text-3xl font-bold font-heading text-white sm:text-5xl">Let&apos;s Build Something Amazing</h2>
                             <p className="mb-8 text-base text-zinc-400 leading-relaxed">
@@ -47,7 +44,6 @@ export const ContactSection = () => {
                             </div>
                         </div>
 
-                        {/* Social Links & Info */}
                         <div className="flex flex-col justify-center gap-8 rounded-2xl bg-white/5 p-8 border border-white/5">
                             <div>
                                 <h3 className="mb-4 text-xs font-bold uppercase tracking-widest text-zinc-400 font-mono">Connect & Links</h3>

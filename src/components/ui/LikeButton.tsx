@@ -7,7 +7,6 @@ import { useArticleLike } from "@/hooks/useArticleLike";
 interface LikeButtonProps {
     articleId: string;
     initialLikeCount: number;
-    /** When true, renders a larger CTA variant (used at bottom of article) */
     variant?: "compact" | "cta";
 }
 
@@ -41,7 +40,6 @@ export function LikeButton({
                 isDisabled ? "opacity-60 cursor-not-allowed pointer-events-none" : "cursor-pointer",
             ].join(" ")}
         >
-            {/* Heart icon */}
             <AnimatePresence mode="wait" initial={false}>
                 {isInitializing || isPending ? (
                     <motion.span
@@ -76,12 +74,10 @@ export function LikeButton({
                 )}
             </AnimatePresence>
 
-            {/* Label */}
             <span className={liked ? "text-rose-400" : ""}>
                 {liked ? "Liked" : "Like"}
             </span>
 
-            {/* Count — animates when it changes */}
             <AnimatePresence mode="wait" initial={false}>
                 <motion.span
                     key={likeCount}

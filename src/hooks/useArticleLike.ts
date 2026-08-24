@@ -6,9 +6,7 @@ import { ensureAnonymousUser } from "@/lib/firebase/auth";
 interface LikeState {
     liked: boolean;
     likeCount: number;
-    /** True while the initial GET is in-flight (first mount) */
     isInitializing: boolean;
-    /** True while a POST/DELETE action is in-flight */
     isPending: boolean;
     error: string | null;
 }
@@ -17,15 +15,6 @@ interface UseLikeReturn extends LikeState {
     toggleLike: () => Promise<void>;
 }
 
-/**
- * Manages article like state for a single article.
- *
- * On mount, calls GET /api/articles/{id}/like to restore the current user's
- * like status (important after page refresh — anonymous UID persists in Firebase Auth).
- *
- * toggleLike fires POST or DELETE and waits for the server response before
- * updating the UI. No optimistic updates — safe and predictable first implementation.
- */
 export function useArticleLike(
     articleId: string,
     initialLikeCount: number
@@ -38,7 +27,6 @@ export function useArticleLike(
         error: null,
     });
 
-    // ── On mount: restore liked state from the server ─────────────────────
     useEffect(() => {
         let cancelled = false;
 
@@ -65,7 +53,6 @@ export function useArticleLike(
                 }
             } catch (err) {
                 if (!cancelled) {
-                    // Non-fatal — fall back to SSR count and unliked state
                     console.error("[useArticleLike] init error:", err);
                     setState((prev) => ({
                         ...prev,
@@ -80,9 +67,7 @@ export function useArticleLike(
         return () => { cancelled = true; };
     }, [articleId]);
 
-    // ── Toggle: POST (like) or DELETE (unlike) ────────────────────────────
     const toggleLike = useCallback(async () => {
-        // Guard: don't fire while initializing or another request is pending
         if (state.isInitializing || state.isPending) return;
 
         setState((prev) => ({ ...prev, isPending: true, error: null }));

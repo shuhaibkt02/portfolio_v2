@@ -12,11 +12,9 @@ interface ExperienceContextType {
 const ExperienceContext = createContext<ExperienceContextType | undefined>(undefined);
 
 export const ExperienceProvider = ({ children }: { children: React.ReactNode }) => {
-    // Default to false initially, or load from local storage
     const [isImmersive, setIsImmersive] = useState(false);
     const [isSoundEnabled, setIsSoundEnabled] = useState(false);
 
-    // Optional: Persist to localStorage
     useEffect(() => {
         const storedImmersive = localStorage.getItem("immersive-mode");
         const storedSound = localStorage.getItem("sound-enabled");

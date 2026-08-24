@@ -1,11 +1,3 @@
-/**
- * ArticleSections.tsx
- *
- * Pure server-compatible section renderer for blog articles.
- * Contains no client hooks — safe to import in Server Components.
- * Code blocks use a client sub-component (CodeBlock) rendered as a JSX element.
- */
-
 import { BlogSection } from "@/lib/blogData";
 import { AlertCircle, Info, Lightbulb, ShieldAlert } from "lucide-react";
 import { CodeBlock } from "./ArticleActions";
@@ -48,7 +40,6 @@ export function renderSection(section: BlogSection, idx: number) {
                 </ul>
             );
         case "code":
-            // CodeBlock is a client component — rendered as JSX element, not called as a function
             return <CodeBlock key={idx} section={section} idx={idx} />;
         case "callout": {
             const variantStyles = {

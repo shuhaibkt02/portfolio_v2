@@ -32,12 +32,10 @@ export const CaseStudiesHub = () => {
 
     return (
         <section id="work" className="relative w-full py-24 px-4 sm:px-8 bg-zinc-950/60 overflow-hidden">
-            {/* Ambient Lighting */}
             <div className="absolute top-1/2 left-10 w-96 h-96 bg-flutter-blue/5 rounded-full blur-3xl pointer-events-none" />
             <div className="absolute bottom-10 right-10 w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none" />
 
             <div className="mx-auto max-w-7xl relative z-10">
-                {/* Header */}
                 <div className="mb-12 text-center max-w-3xl mx-auto">
                     <p className="text-xs font-mono text-flutter-blue uppercase tracking-widest mb-2">Production Case Studies</p>
                     <h2 className="text-4xl font-bold tracking-tight text-white font-heading sm:text-5xl">
@@ -48,7 +46,6 @@ export const CaseStudiesHub = () => {
                     </p>
                 </div>
 
-                {/* Category Filter Tabs */}
                 <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
                     {categories.map((cat) => {
                         const Icon = cat.icon;
@@ -71,7 +68,6 @@ export const CaseStudiesHub = () => {
                     })}
                 </div>
 
-                {/* Dynamic Case Studies Display */}
                 <AnimatePresence mode="wait">
                     <motion.div
                         key={selectedCategory}
@@ -82,7 +78,6 @@ export const CaseStudiesHub = () => {
                         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
                     >
                         {filteredStudies.map((study, index) => {
-                            // First item in 'All' category gets Featured presentation
                             const isFeatured = selectedCategory === "all" && index === 0;
 
                             return (

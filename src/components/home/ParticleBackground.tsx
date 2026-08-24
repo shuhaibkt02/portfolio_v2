@@ -2,31 +2,13 @@
 
 import { useEffect, useRef } from "react";
 
-/**
- * StarfieldBackground — minimal, deep-space dark background.
- *
- * Layers, each restrained:
- *  1. Three star depth-layers (far/mid/near) — parallax via slow independent
- *     drift, no scroll/mouse coupling needed to feel alive.
- *  2. Gentle per-star twinkle (opacity breathing, staggered phase).
- *  3. Sparse constellation lines — only the few nearest-neighbor pairs among
- *     the "near" layer get connected, and only within a tight distance. This
- *     keeps it a scattering of stars with the occasional constellation,
- *     not a network-graph particle background.
- *  4. Rare shooting stars — a slow timer, one streak at a time.
- *  5. A single, very faint nebula haze so the field isn't perfectly flat.
- *
- * Respects prefers-reduced-motion (freezes twinkle/drift, no shooting stars).
- * Renders at devicePixelRatio, resize is debounced.
- */
-
 type Star = {
     x: number;
     y: number;
     baseX: number;
     baseY: number;
     radius: number;
-    layer: 0 | 1 | 2; // 0 = far, 1 = mid, 2 = near
+    layer: 0 | 1 | 2;
     twinkleOffset: number;
     twinkleSpeed: number;
     driftAngle: number;
@@ -42,12 +24,12 @@ type ShootingStar = {
 };
 
 const BACKGROUND = "#05050a";
-const NEBULA = "rgba(76, 63, 148, 0.05)"; // faint indigo haze, single accent only
+const NEBULA = "rgba(76, 63, 148, 0.05)";
 
 const LAYER_CONFIG = [
-    { count: 90, radius: [0.4, 0.9], speed: 0.0015, opacity: 0.5 }, // far
-    { count: 55, radius: [0.7, 1.4], speed: 0.004, opacity: 0.75 }, // mid
-    { count: 28, radius: [1.1, 2.0], speed: 0.008, opacity: 1 }, // near
+    { count: 90, radius: [0.4, 0.9], speed: 0.0015, opacity: 0.5 },
+    { count: 55, radius: [0.7, 1.4], speed: 0.004, opacity: 0.75 },
+    { count: 28, radius: [1.1, 2.0], speed: 0.008, opacity: 1 },
 ] as const;
 
 export const ParticleBackground = () => {
@@ -132,8 +114,6 @@ export const ParticleBackground = () => {
         };
 
         const nearestPairs = () => {
-            // Only connect within the "near" layer, only true nearest neighbors,
-            // only if close enough — keeps constellations sparse and deliberate.
             const near = stars.filter((s) => s.layer === 2);
             const maxDist = Math.min(width, height) * 0.12;
             const pairs: [Star, Star][] = [];
@@ -157,7 +137,6 @@ export const ParticleBackground = () => {
             ctx.fillStyle = BACKGROUND;
             ctx.fillRect(0, 0, width, height);
 
-            // Single faint nebula haze, off-center, for depth without noise
             const nebulaGradient = ctx.createRadialGradient(
                 width * 0.72,
                 height * 0.28,
@@ -171,7 +150,6 @@ export const ParticleBackground = () => {
             ctx.fillStyle = nebulaGradient;
             ctx.fillRect(0, 0, width, height);
 
-            // Constellation lines (drawn before stars so stars sit on top)
             const pairs = nearestPairs();
             ctx.strokeStyle = "rgba(180, 190, 220, 0.12)";
             ctx.lineWidth = 1;
@@ -199,7 +177,6 @@ export const ParticleBackground = () => {
                 ctx.arc(s.x, s.y, s.radius, 0, Math.PI * 2);
                 ctx.fill();
 
-                // subtle glow only for the near layer's brighter stars
                 if (s.layer === 2) {
                     ctx.fillStyle = `rgba(180, 195, 255, ${opacity * 0.15})`;
                     ctx.beginPath();

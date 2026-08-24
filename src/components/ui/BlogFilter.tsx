@@ -27,7 +27,6 @@ export function BlogFilter({ posts, allTags }: BlogFilterProps) {
 
     return (
         <>
-            {/* Search & Tag Filter Bar */}
             <div className="mb-12 space-y-6">
                 <div className="relative max-w-xl mx-auto">
                     <Search
@@ -44,7 +43,6 @@ export function BlogFilter({ posts, allTags }: BlogFilterProps) {
                     />
                 </div>
 
-                {/* Tag Pills */}
                 <div className="flex flex-wrap justify-center gap-2">
                     <button
                         id="tag-all"
@@ -75,7 +73,6 @@ export function BlogFilter({ posts, allTags }: BlogFilterProps) {
                 </div>
             </div>
 
-            {/* Articles Grid */}
             <div>
                 <h2 className="text-xl font-bold font-heading text-white mb-6">
                     {selectedTag
@@ -116,7 +113,6 @@ export function BlogFilter({ posts, allTags }: BlogFilterProps) {
                                     className="group flex flex-col justify-between h-full rounded-3xl border border-zinc-800/80 bg-zinc-900/40 p-6 hover:border-zinc-700 transition-all hover:bg-zinc-900/60"
                                 >
                                     <div>
-                                        {/* Graphic banner */}
                                         <div
                                             className={`aspect-[2/1] w-full rounded-2xl mb-6 bg-gradient-to-br ${post.coverGradient} border border-white/10 p-5 flex flex-col justify-between relative overflow-hidden`}
                                         >
@@ -151,9 +147,7 @@ export function BlogFilter({ posts, allTags }: BlogFilterProps) {
                                         </p>
                                     </div>
 
-                                    {/* Card footer: like count + read link */}
                                     <div className="flex items-center justify-between border-t border-zinc-800/60 pt-4">
-                                        {/* Read-only like count */}
                                         <span className="flex items-center gap-1.5 text-xs text-zinc-500 font-mono">
                                             <Heart size={12} className="text-zinc-600" />
                                             <span>{post.likeCount}</span>

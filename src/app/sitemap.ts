@@ -4,7 +4,6 @@ import { caseStudies } from "@/lib/data";
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://shuhaibkt.vercel.app";
 
-  // Base routes
   const routes = [
     {
       url: baseUrl,
@@ -14,7 +13,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ];
 
-  // Dynamic project/case study routes
   const projectRoutes = caseStudies.map((study) => ({
     url: `${baseUrl}/work/${study.id}`,
     lastModified: new Date(),

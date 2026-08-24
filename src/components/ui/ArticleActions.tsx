@@ -4,8 +4,6 @@ import { useState } from "react";
 import { Check, Copy, Share2 } from "lucide-react";
 import { BlogSection } from "@/lib/blogData";
 
-// ─── Code Block (client — needs useState for copy state) ─────────────────────
-
 interface CodeBlockProps {
     section: BlogSection;
     idx: number;
@@ -48,8 +46,6 @@ export function CodeBlock({ section, idx }: CodeBlockProps) {
         </div>
     );
 }
-
-// ─── Share Button (client — needs navigator.clipboard + useState) ─────────────
 
 export function ShareButton() {
     const [copied, setCopied] = useState(false);

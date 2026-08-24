@@ -3,7 +3,6 @@ import { getAuth } from "firebase-admin/auth";
 import { FieldValue } from "firebase-admin/firestore";
 import { db } from "@/lib/firebase/admin";
 
-/** Extract and verify the Firebase ID token from the Authorization header. */
 async function verifyToken(request: NextRequest): Promise<{ uid: string } | null> {
     const authHeader = request.headers.get("Authorization");
     if (!authHeader?.startsWith("Bearer ")) return null;
@@ -21,11 +20,6 @@ interface RouteContext {
     params: Promise<{ articleId: string }>;
 }
 
-// ─────────────────────────────────────────────────────────
-// GET /api/articles/[articleId]/like
-// Returns the current user's like status + article likeCount.
-// Called on mount by useArticleLike to restore liked state after refresh.
-// ─────────────────────────────────────────────────────────
 export async function GET(request: NextRequest, { params }: RouteContext) {
     const { articleId } = await params;
 
@@ -56,12 +50,6 @@ export async function GET(request: NextRequest, { params }: RouteContext) {
     }
 }
 
-// ─────────────────────────────────────────────────────────
-// POST /api/articles/[articleId]/like
-// Creates a like for this user+article pair (idempotent).
-// Uses a Firestore transaction to atomically create the like doc
-// and increment the article's likeCount — prevents race conditions.
-// ─────────────────────────────────────────────────────────
 export async function POST(request: NextRequest, { params }: RouteContext) {
     const { articleId } = await params;
 
@@ -85,7 +73,6 @@ export async function POST(request: NextRequest, { params }: RouteContext) {
                 tx.get(likeRef),
             ]);
 
-            // Idempotent: already liked — return current count without writing
             if (likeSnap.exists) {
                 return articleSnap.exists ? (articleSnap.data()?.likeCount ?? 0) : 0;
             }
@@ -94,10 +81,8 @@ export async function POST(request: NextRequest, { params }: RouteContext) {
                 ? (articleSnap.data()?.likeCount ?? 0)
                 : 0;
 
-            // Create the like document (acts as the unique constraint)
             tx.set(likeRef, { createdAt: new Date() });
 
-            // Upsert the article document and increment likeCount
             tx.set(
                 articleRef,
                 { likeCount: FieldValue.increment(1) },
@@ -114,12 +99,6 @@ export async function POST(request: NextRequest, { params }: RouteContext) {
     }
 }
 
-// ─────────────────────────────────────────────────────────
-// DELETE /api/articles/[articleId]/like
-// Removes this user's like (idempotent).
-// Uses a Firestore transaction to atomically delete the like doc
-// and decrement the article's likeCount.
-// ─────────────────────────────────────────────────────────
 export async function DELETE(request: NextRequest, { params }: RouteContext) {
     const { articleId } = await params;
 
@@ -143,7 +122,6 @@ export async function DELETE(request: NextRequest, { params }: RouteContext) {
                 tx.get(likeRef),
             ]);
 
-            // Idempotent: not liked — return current count without writing
             if (!likeSnap.exists) {
                 return articleSnap.exists ? (articleSnap.data()?.likeCount ?? 0) : 0;
             }
@@ -154,7 +132,6 @@ export async function DELETE(request: NextRequest, { params }: RouteContext) {
 
             tx.delete(likeRef);
 
-            // Never let likeCount go below 0
             const nextCount = Math.max(0, currentCount - 1);
             tx.set(articleRef, { likeCount: nextCount }, { merge: true });
 

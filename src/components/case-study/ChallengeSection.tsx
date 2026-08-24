@@ -23,8 +23,6 @@ export const ChallengeSection = ({ description, painPoints }: ChallengeSectionPr
     return (
         <section className="bg-black py-24 text-white">
             <div className="mx-auto grid max-w-7xl grid-cols-1 gap-16 px-6 sm:px-12 lg:grid-cols-2">
-
-                {/* Left: Problem Statement */}
                 <div className="flex flex-col justify-center">
                     <motion.h2
                         initial={{ opacity: 0, x: -20 }}
@@ -42,16 +40,6 @@ export const ChallengeSection = ({ description, painPoints }: ChallengeSectionPr
                         transition={{ delay: 0.2 }}
                         className="mb-8 text-3xl font-bold leading-snug font-heading sm:text-4xl"
                     >
-                        {/* 
-                            For now, keeping the title static "The Challenge" above or generic. 
-                            The description below is dynamic.
-                            If we want a dynamic headline, we can add it to the schema later.
-                            Using a generic headline or derived from description if needed, 
-                            but for now sticking to the layout provided in the original code 
-                            which had a specific question headline. 
-                            Since I didn't add a 'challengeHeadline' to schema, I'll use a generic one 
-                            or just allow the description to do the heavy lifting.
-                        */}
                         Problem Statement
                     </motion.h3>
 
@@ -66,10 +54,8 @@ export const ChallengeSection = ({ description, painPoints }: ChallengeSectionPr
                     </motion.p>
                 </div>
 
-                {/* Right: Illustration/Pain Points */}
                 <div className="flex items-center justify-center">
                     <div className="relative w-full max-w-md">
-                        {/* Abstract visual representation of chaos/pain points */}
                         <motion.div
                             initial={{ opacity: 0, scale: 0.8 }}
                             whileInView={{ opacity: 1, scale: 1 }}
@@ -87,7 +73,6 @@ export const ChallengeSection = ({ description, painPoints }: ChallengeSectionPr
                         </motion.div>
                     </div>
                 </div>
-
             </div>
         </section>
     );

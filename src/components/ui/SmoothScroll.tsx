@@ -11,7 +11,7 @@ export const SmoothScroll = () => {
         if (!isImmersive) return;
 
         const lenis = new Lenis({
-            autoRaf: true, // v1 + automatic requestAnimationFrame
+            autoRaf: true,
         });
 
         return () => {

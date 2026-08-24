@@ -31,7 +31,6 @@ type KeyFeaturesProps = {
 export const KeyFeatures = ({ features }: KeyFeaturesProps) => {
     const [activeTab, setActiveTab] = useState("");
 
-    // Initialize activeTab when features are loaded
     useEffect(() => {
         if (features && features.length > 0) {
             setActiveTab(features[0].id);
@@ -46,7 +45,6 @@ export const KeyFeatures = ({ features }: KeyFeaturesProps) => {
                 <h2 className="mb-12 text-center text-3xl font-bold font-heading sm:text-4xl">Key Features</h2>
 
                 <div className="flex flex-col items-center gap-12 lg:flex-row lg:items-start">
-                    {/* Tabs Navigation */}
                     <div className="flex w-full flex-row overflow-x-auto rounded-xl bg-zinc-900 p-1 lg:w-1/3 lg:flex-col lg:overflow-visible">
                         {features.map((feature) => {
                             const Icon = iconMap[feature.iconName] || Shield;
@@ -73,7 +71,6 @@ export const KeyFeatures = ({ features }: KeyFeaturesProps) => {
                         })}
                     </div>
 
-                    {/* Tab Content */}
                     <div className="min-h-[400px] w-full flex-1 rounded-3xl border border-zinc-800 bg-zinc-900/50 p-8 lg:p-12">
                         <AnimatePresence mode="wait">
                             {features.map((feature) => {
@@ -100,8 +97,6 @@ export const KeyFeatures = ({ features }: KeyFeaturesProps) => {
                                                     Impact: {feature.metric}
                                                 </div>
                                             </div>
-
-
                                         </motion.div>
                                     );
                                 }

@@ -10,13 +10,11 @@ export const BlogPreviewSection = () => {
 
     return (
         <section id="blog" className="bg-zinc-950 py-24 text-white relative overflow-hidden">
-            {/* Ambient Lighting */}
             <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute top-1/3 left-1/3 w-96 h-96 bg-flutter-blue/5 rounded-full blur-3xl" />
             </div>
 
             <div className="mx-auto max-w-7xl px-6 sm:px-12 relative z-10">
-                {/* Section Header */}
                 <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -52,7 +50,6 @@ export const BlogPreviewSection = () => {
                     </motion.div>
                 </div>
 
-                {/* Blog Cards Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {blogs.map((post, index) => (
                         <motion.div

@@ -1,34 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, BookOpen, Calendar, Clock, Cpu } from "lucide-react";
-import { getAllBlogs, BlogPostWithEngagement } from "@/lib/blogData";
-import { db } from "@/lib/firebase/admin";
+import { getPostsWithEngagement } from "@/lib/blogEngagement";
 import { BlogFilter } from "@/components/ui/BlogFilter";
-
-/**
- * Fetch real likeCounts from Firestore for all articles in a single batch.
- * Merges them into the static blog post data.
- */
-async function getPostsWithEngagement(): Promise<BlogPostWithEngagement[]> {
-    const staticPosts = getAllBlogs();
-
-    try {
-        // Batch-fetch all article docs in one round-trip
-        const snapshot = await db.collection("articles").get();
-        const countMap: Record<string, number> = {};
-        snapshot.forEach((doc) => {
-            countMap[doc.id] = doc.data()?.likeCount ?? 0;
-        });
-
-        return staticPosts.map((post) => ({
-            ...post,
-            likeCount: countMap[post.id] ?? post.likeCount,
-        }));
-    } catch (err) {
-        console.error("[BlogListPage] Firestore fetch failed:", err);
-        // Non-fatal — fall back to static defaults (all 0s)
-        return staticPosts as BlogPostWithEngagement[];
-    }
-}
 
 export default async function BlogListPage() {
     const allPosts = await getPostsWithEngagement();
@@ -38,14 +11,12 @@ export default async function BlogListPage() {
 
     return (
         <main className="min-h-screen bg-zinc-950 text-white pt-28 pb-24 px-6 sm:px-12 relative overflow-hidden">
-            {/* Ambient Lighting background */}
             <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute top-20 left-1/3 w-96 h-96 bg-flutter-blue/10 rounded-full blur-3xl" />
                 <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl" />
             </div>
 
             <div className="mx-auto max-w-7xl relative z-10">
-                {/* Header */}
                 <div className="text-center max-w-3xl mx-auto mb-14">
                     <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-flutter-blue/10 border border-flutter-blue/20 text-flutter-blue text-xs font-mono mb-4">
                         <BookOpen size={14} />
@@ -60,7 +31,6 @@ export default async function BlogListPage() {
                     </p>
                 </div>
 
-                {/* Featured Hero Article — static, rendered server-side */}
                 {featuredPost && (
                     <div className="mb-16">
                         <Link
@@ -104,7 +74,6 @@ export default async function BlogListPage() {
                                     </div>
                                 </div>
 
-                                {/* Gradient Banner */}
                                 <div
                                     className={`lg:col-span-5 relative aspect-video rounded-2xl overflow-hidden bg-gradient-to-br ${featuredPost.coverGradient} border border-white/10 p-6 flex flex-col justify-between group-hover:scale-[1.02] transition-transform duration-500`}
                                 >
@@ -129,7 +98,6 @@ export default async function BlogListPage() {
                     </div>
                 )}
 
-                {/* Client island: search, tag filter, article grid (with like counts) */}
                 <BlogFilter posts={allPosts} allTags={allTags} />
             </div>
         </main>

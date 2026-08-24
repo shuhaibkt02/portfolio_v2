@@ -5,7 +5,7 @@ import { CheckCircle, Smartphone, Cloud, Database, Wrench, Globe } from "lucide-
 import {
     FlutterIcon, DartIcon, KotlinIcon, AndroidIcon, NextJsIcon,
     TypeScriptIcon, FirebaseIcon, GitIcon, PostgreSQLIcon,
-    HiveIcon, RoomIcon, SentryIcon, ReactIcon, GithubActionsIcon,
+    HiveIcon, SentryIcon, ReactIcon, GithubActionsIcon,
     CleanArchIcon, BlocIcon, RiverpodIcon, AndroidStudioIcon, AwsIcon
 } from "@/components/icons/TechIcons";
 
@@ -90,14 +90,12 @@ const specializations = [
 export const EngineeringExpertise = () => {
     return (
         <section id="skills" className="bg-zinc-950 py-24 text-white relative overflow-hidden">
-            {/* Ambient background */}
             <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-flutter-blue/5 rounded-full blur-3xl" />
                 <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl" />
             </div>
 
             <div className="mx-auto max-w-7xl px-6 sm:px-12 relative z-10">
-                {/* Section Header */}
                 <motion.div
                     className="mb-16 text-center"
                     initial={{ opacity: 0, y: 20 }}
@@ -111,7 +109,6 @@ export const EngineeringExpertise = () => {
                     </p>
                 </motion.div>
 
-                {/* Categorized Skills Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
                     {skillCategories.map((category, index) => {
                         const CategoryIcon = category.icon;
@@ -156,7 +153,6 @@ export const EngineeringExpertise = () => {
                     })}
                 </div>
 
-                {/* What I Specialize In Section */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}

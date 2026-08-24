@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { useState } from "react";
 
 type DesignProcessProps = {
@@ -21,26 +20,19 @@ export const DesignProcess = ({ designProcess }: DesignProcessProps) => {
                 <h2 className="mb-12 text-center text-3xl font-bold font-heading sm:text-4xl">Design Iterations</h2>
 
                 <div className="relative mx-auto aspect-video w-full max-w-5xl overflow-hidden rounded-2xl bg-black border border-white/10 shadow-2xl">
-                    {/* Background Image (After) */}
                     <div className="absolute inset-0 flex items-center justify-center bg-blue-900/20 text-blue-200">
-                        {/* <span className="text-4xl font-bold">High-Fidelity (After)</span> */}
-                        {/* Replace this div with an actual <img> tag when assets are available */}
                         <img src={designProcess.afterImage} alt="After Design" className="object-cover w-full h-full" />
                     </div>
 
-                    {/* Foreground Image (Before) - Clipped */}
                     <div
                         className="absolute inset-0 flex items-center justify-center bg-zinc-800 text-zinc-500 overflow-hidden"
                         style={{ clipPath: `inset(0 ${100 - sliderValue}% 0 0)` }}
                     >
                         <div className="absolute inset-0 flex items-center justify-center bg-zinc-800 w-full h-full">
-                            {/* This inner div ensures image stays centered/sized correctly regardless of clip */}
-                            {/* <span className="text-4xl font-bold">Wireframe (Before)</span> */}
                             <img src={designProcess.beforeImage} alt="Before Wireframe" className="object-cover w-full h-full" />
                         </div>
                     </div>
 
-                    {/* Slider Handle */}
                     <div
                         className="absolute inset-y-0 w-1 bg-white cursor-ew-resize"
                         style={{ left: `${sliderValue}%` }}
@@ -50,7 +42,6 @@ export const DesignProcess = ({ designProcess }: DesignProcessProps) => {
                         </div>
                     </div>
 
-                    {/* Range Input for Interaction */}
                     <input
                         type="range"
                         min="0"

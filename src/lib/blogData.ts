@@ -11,13 +11,13 @@ export interface BlogPost {
     slug: string;
     title: string;
     excerpt: string;
-    coverGradient: string; // Sleek Tailwind gradient for reliable high-end visual banner
+    coverGradient: string;
     publishedAt: string;
     readTime: string;
     category: string;
     tags: string[];
     featured?: boolean;
-    likeCount: number; // Default: 0 in static data; hydrated from Firestore at runtime
+    likeCount: number;
     bannerSnippet?: {
         label: string;
         codeLines: { text: string; color?: string }[];
@@ -29,12 +29,8 @@ export interface BlogPost {
     sections: BlogSection[];
 }
 
-/**
- * Server-enriched type returned to pages after Firestore hydration.
- * Keeps static article content and live engagement data conceptually separate.
- */
 export interface BlogPostWithEngagement extends BlogPost {
-    likeCount: number; // Real-time value from Firestore, overrides the static default
+    likeCount: number;
 }
 
 export const blogPosts: BlogPost[] = [

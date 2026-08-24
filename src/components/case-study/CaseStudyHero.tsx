@@ -12,16 +12,13 @@ interface CaseStudyHeroProps {
 export const CaseStudyHero = ({ study }: CaseStudyHeroProps) => {
     return (
         <section className="relative min-h-[85vh] md:min-h-screen w-full overflow-hidden bg-zinc-900 flex items-center pt-20 pb-16 sm:pt-24 sm:pb-20">
-            {/* Background with Color/Image */}
             <div
                 className="absolute inset-0 z-0 opacity-30"
                 style={{ backgroundColor: study.color }}
             />
             <div className="absolute inset-0 z-0 bg-gradient-to-b from-black/20 via-black/60 to-black" />
 
-            {/* Content Container */}
             <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-12 lg:px-24">
-                {/* Back to Work Link */}
                 <motion.div
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -107,4 +104,3 @@ export const CaseStudyHero = ({ study }: CaseStudyHeroProps) => {
         </section>
     );
 };
-

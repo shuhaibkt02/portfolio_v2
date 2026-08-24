@@ -9,16 +9,12 @@ type TechStackGalleryProps = {
     galleryImages: string[];
 };
 
-// Custom interactive device mockup fallback component
 const DeviceMockup = ({ imagePath }: { imagePath: string }) => {
-    // Parse projectId and screen number
-    // Path example: /projects/waves/screen-1.jpg or /projects/waves2/screen-2.jpg
     const parts = imagePath.split("/");
     const projectId = parts[2] || "waves";
     const fileName = parts[3] || "screen-1";
     const screenNum = parseInt(fileName.split("-")[1]) || 1;
 
-    // Render mockup content based on project and screen index
     const renderScreenContent = () => {
         if (projectId === "cakenook") {
             switch (screenNum) {
@@ -337,13 +333,11 @@ const DeviceMockup = ({ imagePath }: { imagePath: string }) => {
 
     return (
         <div className="relative w-[280px] h-[520px] rounded-[40px] border-[10px] border-zinc-800 bg-zinc-950 shadow-2xl flex flex-col overflow-hidden select-none">
-            {/* Phone Speaker & Camera Notch */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 h-5 w-32 bg-zinc-800 rounded-b-2xl z-30 flex items-center justify-center gap-1.5">
                 <div className="h-1 w-8 bg-zinc-700 rounded-full" />
                 <div className="h-1.5 w-1.5 bg-zinc-900 rounded-full" />
             </div>
 
-            {/* Phone Status Bar */}
             <div className="h-6 bg-zinc-950 border-b border-zinc-900/20 flex items-center justify-between px-6 pt-1 text-[8px] text-zinc-400 font-mono shrink-0 z-20">
                 <span>14:02</span>
                 <div className="flex items-center gap-1">
@@ -352,12 +346,10 @@ const DeviceMockup = ({ imagePath }: { imagePath: string }) => {
                 </div>
             </div>
 
-            {/* Screen Content */}
             <div className="flex-1 overflow-hidden relative z-10">
                 {renderScreenContent()}
             </div>
 
-            {/* Home indicator bar */}
             <div className="h-4 bg-zinc-950 flex items-center justify-center shrink-0 z-20">
                 <div className="w-20 h-1 bg-zinc-800 rounded-full" />
             </div>
@@ -376,7 +368,6 @@ export const TechStackGallery = ({ techStack, galleryImages }: TechStackGalleryP
         <section className="bg-zinc-950 py-24 text-white border-t border-zinc-900">
             <div className="mx-auto max-w-7xl px-6 sm:px-12">
 
-                {/* Tech Stack */}
                 <div className="mb-24 text-center">
                     <h2 className="mb-8 text-2xl font-bold font-heading">Technologies Used</h2>
                     <div className="flex flex-wrap justify-center gap-4">
@@ -395,7 +386,6 @@ export const TechStackGallery = ({ techStack, galleryImages }: TechStackGalleryP
                     </div>
                 </div>
 
-                {/* Gallery */}
                 <div>
                     <h2 className="mb-4 text-center text-3xl font-bold font-heading">Project Interface Flow</h2>
                     <p className="mb-16 text-center text-zinc-400 max-w-xl mx-auto">
@@ -403,7 +393,7 @@ export const TechStackGallery = ({ techStack, galleryImages }: TechStackGalleryP
                     </p>
                     <div className="flex flex-wrap items-center justify-center gap-12">
                         {galleryImages.map((image, i) => {
-                            const isError = imageErrors[image] || true; // Set default fallback true so mockup shows, but supports loading if image file is placed
+                            const isError = imageErrors[image] || true;
                             
                             return (
                                 <motion.div
@@ -418,7 +408,6 @@ export const TechStackGallery = ({ techStack, galleryImages }: TechStackGalleryP
                                         <DeviceMockup imagePath={image} />
                                     ) : (
                                         <div className="relative overflow-hidden rounded-[32px] border border-zinc-800 bg-zinc-900 w-[280px] h-[520px] shadow-2xl">
-                                            {/* Normal HTML img tag with error handler fallback */}
                                             <img
                                                 src={image}
                                                 alt={`Screen mockup ${i + 1}`}

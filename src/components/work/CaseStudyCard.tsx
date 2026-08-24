@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, ExternalLink, ShieldCheck, Sparkles, Smartphone, Code } from "lucide-react";
+import { ArrowUpRight, ShieldCheck, Sparkles } from "lucide-react";
 import Link from "next/link";
 import { CaseStudy } from "@/lib/data";
 
@@ -12,8 +12,6 @@ interface CaseStudyCardProps {
 }
 
 export const CaseStudyCard = ({ study, index, isFeatured = false }: CaseStudyCardProps) => {
-    const isExternal = study.webUrl || study.githubUrl || study.playStoreUrl;
-
     if (isFeatured) {
         return (
             <motion.div
@@ -23,7 +21,6 @@ export const CaseStudyCard = ({ study, index, isFeatured = false }: CaseStudyCar
                 viewport={{ once: true }}
                 className="group relative w-full col-span-1 md:col-span-2 rounded-3xl border border-zinc-800/80 bg-zinc-900/40 p-8 sm:p-10 backdrop-blur-md hover:border-zinc-700 transition-all duration-300 overflow-hidden shadow-2xl"
             >
-                {/* Ambient Glow */}
                 <div
                     className="absolute -right-20 -top-20 h-72 w-72 rounded-full blur-3xl opacity-20 transition-opacity group-hover:opacity-35 pointer-events-none"
                     style={{ backgroundColor: study.color }}
@@ -52,7 +49,6 @@ export const CaseStudyCard = ({ study, index, isFeatured = false }: CaseStudyCar
                                 {study.description}
                             </p>
 
-                            {/* Metrics Highlights */}
                             <div className="mt-6 flex flex-wrap gap-2">
                                 {study.metrics.map((m) => (
                                     <span
@@ -66,7 +62,6 @@ export const CaseStudyCard = ({ study, index, isFeatured = false }: CaseStudyCar
                             </div>
                         </div>
 
-                        {/* Tech & CTA */}
                         <div className="mt-8 pt-6 border-t border-zinc-800/80 flex flex-wrap items-center justify-between gap-4">
                             <div className="flex flex-wrap gap-2">
                                 {study.techStack.map((tech) => (
@@ -86,7 +81,6 @@ export const CaseStudyCard = ({ study, index, isFeatured = false }: CaseStudyCar
                         </div>
                     </div>
 
-                    {/* Visual Card Graphic / Architecture Box */}
                     <div className="lg:col-span-5 rounded-2xl bg-zinc-950/80 border border-zinc-800/80 p-6 flex flex-col justify-between h-full min-h-[220px]">
                         <div>
                             <span className="text-[11px] font-mono text-zinc-500 uppercase tracking-widest block mb-2">Technical Problem & Solution</span>
@@ -117,7 +111,6 @@ export const CaseStudyCard = ({ study, index, isFeatured = false }: CaseStudyCar
             viewport={{ once: true }}
             className="group relative flex flex-col justify-between rounded-3xl border border-zinc-800/80 bg-zinc-900/40 p-7 hover:border-zinc-700 transition-all duration-300 overflow-hidden shadow-xl"
         >
-            {/* Ambient Background Glow */}
             <div
                 className="absolute -right-12 -top-12 h-44 w-44 rounded-full blur-2xl opacity-15 transition-opacity group-hover:opacity-30 pointer-events-none"
                 style={{ backgroundColor: study.color }}
@@ -146,7 +139,6 @@ export const CaseStudyCard = ({ study, index, isFeatured = false }: CaseStudyCar
                     {study.description}
                 </p>
 
-                {/* Metrics */}
                 {study.metrics.length > 0 && (
                     <div className="mt-4 flex flex-wrap gap-1.5">
                         {study.metrics.slice(0, 2).map((m) => (
@@ -158,7 +150,6 @@ export const CaseStudyCard = ({ study, index, isFeatured = false }: CaseStudyCar
                 )}
             </div>
 
-            {/* Footer Tech Stack */}
             <div className="mt-6 pt-4 border-t border-zinc-800/60 flex items-center justify-between">
                 <div className="flex flex-wrap gap-1.5">
                     {study.techStack.slice(0, 3).map((tech) => (
@@ -177,4 +168,3 @@ export const CaseStudyCard = ({ study, index, isFeatured = false }: CaseStudyCar
         </motion.div>
     );
 };
-

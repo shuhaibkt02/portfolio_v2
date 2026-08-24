@@ -1,10 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  /* Design System Colors */
   --flutter-blue: #0468D7;
-
-  /* Text & Backgrounds */
   --background: #ffffff;
   --foreground: #171717;
 }
@@ -42,7 +39,6 @@ html {
   }
 }
 
-/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -50,21 +46,17 @@ html {
 
 ::-webkit-scrollbar-track {
   background: #09090b;
-  /* zinc-950 */
 }
 
 ::-webkit-scrollbar-thumb {
   background: #27272a;
-  /* zinc-800 */
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: #3f3f46;
-  /* zinc-700 */
 }
 
-/* For Firefox */
 * {
   scrollbar-width: thin;
   scrollbar-color: #27272a #09090b;

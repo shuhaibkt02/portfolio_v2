@@ -26,7 +26,6 @@ export const NavBar = () => {
     const activeScrollSection = useScrollSpy(SECTION_IDS, 250);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-    // Lock body scroll when mobile menu is open
     useEffect(() => {
         if (isMobileMenuOpen) {
             document.body.style.overflow = "hidden";
@@ -35,7 +34,6 @@ export const NavBar = () => {
         }
     }, [isMobileMenuOpen]);
 
-    // Active item logic: handle route path vs scroll position
     const getIsActive = (sectionId: string) => {
         if (pathname?.startsWith("/blog")) {
             return sectionId === "blog";
@@ -45,7 +43,6 @@ export const NavBar = () => {
 
     return (
         <>
-            {/* Desktop Navigation (Floating Dock) */}
             <div className="hidden md:fixed md:bottom-6 md:left-1/2 md:z-50 md:-translate-x-1/2 md:transform md:block">
                 <motion.nav
                     className="flex items-center gap-2 rounded-full border border-white/10 bg-black/60 px-6 py-3 backdrop-blur-lg backdrop-saturate-150 supports-[backdrop-filter]:bg-black/30"
@@ -88,15 +85,12 @@ export const NavBar = () => {
                         );
                     })}
 
-                    {/* Divider and Toggle */}
                     <div className="mx-1 h-6 w-px bg-white/10" />
                     <ImmersiveToggle />
                 </motion.nav>
             </div>
 
-            {/* Mobile Navigation (Top Bar + Hamburger) */}
             <div className="md:hidden">
-                {/* Top Bar */}
                 <div className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between border-b border-white/5 bg-black/60 px-6 py-4 backdrop-blur-lg backdrop-saturate-150 supports-[backdrop-filter]:bg-black/30">
                     <Link
                         href="/#home"
@@ -117,7 +111,6 @@ export const NavBar = () => {
                     </div>
                 </div>
 
-                {/* Mobile Menu Overlay */}
                 <AnimatePresence>
                     {isMobileMenuOpen && (
                         <motion.div
@@ -167,4 +160,3 @@ export const NavBar = () => {
         </>
     );
 };
-

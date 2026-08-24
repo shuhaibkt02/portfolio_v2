@@ -76,8 +76,6 @@ export const StoryTimeline = () => {
     return (
         <section id="about" className="bg-zinc-950 py-24 text-white relative overflow-hidden">
             <div className="mx-auto max-w-7xl px-6 sm:px-12 relative z-10">
-
-                {/* Section Header */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -89,7 +87,6 @@ export const StoryTimeline = () => {
                     <h2 className="text-3xl font-bold font-heading sm:text-4xl">About Me</h2>
                 </motion.div>
 
-                {/* About Me Story Block */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -116,7 +113,6 @@ export const StoryTimeline = () => {
                     </div>
                 </motion.div>
 
-                {/* Experience Section */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -156,7 +152,6 @@ export const StoryTimeline = () => {
                                 {exp.description}
                             </p>
 
-                            {/* Highlights */}
                             <div className="mb-6">
                                 <h4 className="text-xs font-mono text-zinc-400 uppercase tracking-wider mb-3">Highlights</h4>
                                 <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -169,7 +164,6 @@ export const StoryTimeline = () => {
                                 </ul>
                             </div>
 
-                            {/* Technologies */}
                             <div>
                                 <h4 className="text-xs font-mono text-zinc-400 uppercase tracking-wider mb-3">Technologies</h4>
                                 <div className="flex flex-wrap gap-2">
@@ -198,7 +192,6 @@ export const StoryTimeline = () => {
                         </motion.div>
                     ))}
                 </div>
-
             </div>
         </section>
     );

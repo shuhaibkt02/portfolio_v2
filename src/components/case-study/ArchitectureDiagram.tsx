@@ -50,7 +50,6 @@ export const ArchitectureDiagram = ({ diagramId }: ArchitectureDiagramProps) => 
                     Hover over any system node in the diagram below to inspect its technical details and implementation responsibility.
                 </p>
 
-                {/* Desktop Diagram (Horizontal Row with wrapping or Grid) */}
                 <div className="hidden lg:flex lg:flex-wrap lg:items-center lg:justify-center lg:gap-4 xl:gap-6 bg-zinc-900/40 p-12 rounded-3xl border border-zinc-800/80 backdrop-blur-sm">
                     {nodes.map((node, i) => (
                         <div key={i} className="flex items-center gap-4 xl:gap-6">
@@ -83,7 +82,6 @@ export const ArchitectureDiagram = ({ diagramId }: ArchitectureDiagramProps) => 
                     ))}
                 </div>
 
-                {/* Mobile / Tablet Diagram (Vertical Stack) */}
                 <div className="flex flex-col items-center gap-4 lg:hidden bg-zinc-900/40 p-6 sm:p-8 rounded-3xl border border-zinc-800/80">
                     {nodes.map((node, i) => (
                         <div key={i} className="w-full flex flex-col items-center gap-4">
@@ -112,7 +110,6 @@ export const ArchitectureDiagram = ({ diagramId }: ArchitectureDiagramProps) => 
                     ))}
                 </div>
 
-                {/* Node Detail Reveal Panel (Desktop only) */}
                 <div className="hidden lg:block mt-8 min-h-[100px] max-w-3xl mx-auto text-center">
                     {hoveredNode !== null ? (
                         <motion.div

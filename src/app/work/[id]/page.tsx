@@ -1,8 +1,15 @@
 import { caseStudies } from "@/lib/data";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
+import { CaseStudyHero } from "@/components/case-study/CaseStudyHero";
+import { ChallengeSection } from "@/components/case-study/ChallengeSection";
+import { ResearchTimeline } from "@/components/case-study/ResearchTimeline";
+import { DesignProcess } from "@/components/case-study/DesignProcess";
+import { KeyFeatures } from "@/components/case-study/KeyFeatures";
+import { TechStackGallery } from "@/components/case-study/TechStackGallery";
+import { ArchitectureDiagram } from "@/components/case-study/ArchitectureDiagram";
+import { EngineeringChallenges } from "@/components/case-study/EngineeringChallenges";
 
-// This is necessary for static export or just optimization
 export async function generateStaticParams() {
     return caseStudies.map((study) => ({
         id: study.id,
@@ -23,15 +30,6 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
     };
 }
 
-import { CaseStudyHero } from "@/components/case-study/CaseStudyHero";
-import { ChallengeSection } from "@/components/case-study/ChallengeSection";
-import { ResearchTimeline } from "@/components/case-study/ResearchTimeline";
-import { DesignProcess } from "@/components/case-study/DesignProcess";
-import { KeyFeatures } from "@/components/case-study/KeyFeatures";
-import { TechStackGallery } from "@/components/case-study/TechStackGallery";
-import { ArchitectureDiagram } from "@/components/case-study/ArchitectureDiagram";
-import { EngineeringChallenges } from "@/components/case-study/EngineeringChallenges";
-
 export default async function CaseStudyPage({ params }: { params: Promise<{ id: string }> }) {
     const { id } = await params;
     const study = caseStudies.find((s) => s.id === id);
@@ -44,7 +42,6 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ id: 
         <main className="min-h-screen bg-black text-white pb-24">
             <CaseStudyHero study={study} />
             
-            {/* Structured Narrative Section */}
             {study.structuredNarrative && (
                 <section className="bg-zinc-900/40 py-24 border-t border-zinc-900">
                     <div className="mx-auto max-w-7xl px-6 sm:px-12">

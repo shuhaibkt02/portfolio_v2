@@ -23,7 +23,6 @@ export type CaseStudy = {
         result: string;
     };
 
-    // Detailed Content
     challenge: {
         description: string;
         painPoints: {
@@ -34,7 +33,7 @@ export type CaseStudy = {
 
     features: {
         id: string;
-        label: string; // Tab label
+        label: string;
         iconName: "camera" | "map" | "wifi-off" | "users" | "shopping-cart" | "chart-bar" | "globe" | "shield" | "database" | "code";
         title: string;
         description: string;

@@ -27,7 +27,6 @@ export const ResearchTimeline = ({ research }: ResearchTimelineProps) => {
                 <h2 className="mb-16 text-center text-3xl font-bold font-heading sm:text-4xl">Research & Discovery</h2>
 
                 <div className="relative">
-                    {/* Connecting Line */}
                     <div className="absolute left-8 top-0 h-full w-px bg-zinc-800 md:left-1/2 md:-translate-x-1/2" />
 
                     <div className="flex flex-col gap-12 md:gap-24">
